@@ -1,4 +1,4 @@
-{% load static %}
+{% load staticfiles %}
 <html>
     <head>
         <title>Warehouse</title>
@@ -9,11 +9,12 @@
     </head>
     <body>
         <div class="page-header">
-            {% if user.is_authentricated %}
+            <!-- {% if user.is_authentricated %} -->
             <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-            {% endif %}
+            <!-- {% endif %} -->
             <h1><a href="/">LINGs Media Warehouse</a></h1>
         </div>
+        
         <div class="content container">
             <div class="row">
                 <div class="col-md-8">

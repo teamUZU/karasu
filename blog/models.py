@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from stdimage.models import StdImageField
 
 class Post(models.Model):
 	author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
@@ -7,6 +8,15 @@ class Post(models.Model):
 	text = models.TextField()
 	created_date = models.DateTimeField(default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)
+	image = StdImageField(
+		upload_to='image/',
+		blank=True,
+		variations={
+			'large': (600, 400),
+			'thumbnail': (400, 300, True),
+			# 'medium': (300, 200),
+		}
+	)
 
 	def publish(self):
 		self.published_date = timezone.now()
