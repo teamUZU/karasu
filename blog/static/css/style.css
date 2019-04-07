@@ -6,7 +6,11 @@
 /* ノーマライズ */
 
 * {
+<<<<<<< HEAD
         box-sizing: border-box;
+=======
+		box-sizing: border-box;
+>>>>>>> sasaki
 }
 
 html, body, div, span, applet, object, iframe,
@@ -22,6 +26,7 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
+<<<<<<< HEAD
         margin: 0;
         padding: 0;
         border: 0;
@@ -29,10 +34,20 @@ time, mark, audio, video {
         font: inherit;
         vertical-align: baseline;
         text-decoration: none;
+=======
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+		text-decoration: none;
+>>>>>>> sasaki
 }
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
+<<<<<<< HEAD
         display: block;
 }
 
@@ -57,6 +72,32 @@ table {
 html, body {
         width: 100%;
         height: 100%;
+=======
+		display: block;
+}
+
+ol, ul, li {
+		list-style: none;
+}
+
+blockquote, q {
+		quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+		content: '';
+		content: none;
+}
+
+table {
+		border-collapse: collapse;
+		border-spacing: 0;
+}
+
+html, body {
+		width: 100%;
+		height: 100%;
+>>>>>>> sasaki
 }
 
 img {
@@ -67,7 +108,11 @@ img {
 /* 全体 */
 
 p {
+<<<<<<< HEAD
         line-height: 1.8em;
+=======
+		line-height: 1.8em;
+>>>>>>> sasaki
 }
 
 a {
@@ -75,12 +120,21 @@ a {
 }
 
 #wrapper {
+<<<<<<< HEAD
         display: flex;
         flex-flow: column wrap;
         align-items: center;
         color: #585858;
     font-size: 12px;
         font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体";
+=======
+		display: flex;
+		flex-flow: column wrap;
+		align-items: center;
+		color: #585858;
+    font-size: 12px;
+		font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体";
+>>>>>>> sasaki
     overflow: hidden;
 }
 
@@ -89,15 +143,24 @@ a {
 
 header {
     display: flex;
+<<<<<<< HEAD
         flex-flow: column nowrap;
     align-items: center;
         position: fixed;
     z-index: 9999;
         width: 100%;
+=======
+		flex-flow: column nowrap;
+    align-items: center;
+		position: fixed;
+    z-index: 9999;
+		width: 100%;
+>>>>>>> sasaki
     box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.3);
 }
 
 .header_container {
+<<<<<<< HEAD
         display: flex;
         justify-content: center;
         align-items: center;
@@ -107,13 +170,29 @@ header {
         padding: 5px 150px;
         background: rgba(0, 0, 0, 1);
         transition: all 0.3s;
+=======
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		width: 100%;
+		height: 50px;
+		padding: 5px 150px;
+		background: rgba(0, 0, 0, 1);
+		transition: all 0.3s;
+>>>>>>> sasaki
 }
 
 .header_logo {
     font-size: 2em;
     font-weight: 700;
+<<<<<<< HEAD
         color: #fff;
         transition: all 0.3s;
+=======
+		color: #fff;
+		transition: all 0.3s;
+>>>>>>> sasaki
 }
 
 .header_logo span {
@@ -121,6 +200,7 @@ header {
 }
 
 .hamb {
+<<<<<<< HEAD
         display: flex;
         flex-flow: column nowrap;
         justify-content: space-around;
@@ -166,12 +246,60 @@ header {
         position: absolute;
         transform: rotate(45deg);
         -webkit-transform: rotate(45deg);
+=======
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: space-around;
+		align-items: flex-end;
+		position: absolute;
+		right: 20px;
+		width: 120px;
+		height: 40px;
+		padding: 5px;
+		border-radius: 3px;
+		background: #fff;
+		cursor : pointer;
+		transition: all 0.3s;
+}
+
+.hamb::before {
+		content: "MENU";
+		position: absolute;
+		top: 8px;
+		left: 5px;
+		line-height: 1em;
+		font-size: 2em;
+		font-weight: 900;
+		color: #585858;
+}
+
+.hamb_border {
+		content: "";
+		width: 25%;
+		height: 5px;
+		background: #585858;
+		border-radius: 3px;
+		transition: all 1s;
+}
+
+.close1 {
+		position: absolute;
+		transform: rotate(-45deg);
+		-webkit-transform: rotate(-45deg);
+}
+
+.close2 {
+		position: absolute;
+		transform: rotate(45deg);
+		-webkit-transform: rotate(45deg);
+>>>>>>> sasaki
 }
 
 
 /* ヘッダー / ヘッダーメニュー */
 
 .header_menu {
+<<<<<<< HEAD
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -197,6 +325,33 @@ header {
 
 .header_menu a span {
         font-size: 0.3em;
+=======
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		padding: 20px;
+		background: rgba(255, 255, 255, 0.9);
+		text-align: center;
+}
+
+.header_menu li:nth-child(2n) {
+		content: "";
+		width: 1px;
+		height: 40px;
+		background: #6B9DC8;
+		opacity: 0.5;
+}
+
+.header_menu a {
+		font-size: 2em;
+		font-weight: 600;
+		text-shadow: 0 0 3px rgba(255, 255, 255, 1);
+}
+
+.header_menu a span {
+		font-size: 0.3em;
+>>>>>>> sasaki
 }
 
 
@@ -220,9 +375,15 @@ header {
     width: 100%;
     height: 280px;
     padding: 50px 30px 10px 230px;
+<<<<<<< HEAD
         margin-top: 50px;
     background: linear-gradient(135deg, #05FBFF, #31419A);
         overflow: hidden;
+=======
+		margin-top: 50px;
+    background: linear-gradient(135deg, #05FBFF, #31419A);
+		overflow: hidden;
+>>>>>>> sasaki
 }
 
 .body::before {
@@ -261,11 +422,19 @@ header {
     border-right: 0.5px solid #f2f2f2;
     background: #fff;
     overflow: hidden;
+<<<<<<< HEAD
         transition: all 0.5s;
 }
 
 .pickup:hover {
         background: #F6F5F5;
+=======
+		transition: all 0.5s;
+}
+
+.pickup:hover {
+		background: #F6F5F5;
+>>>>>>> sasaki
 }
 
 .pickup h3 {
@@ -311,7 +480,11 @@ header {
 
 .container {
     display: flex;
+<<<<<<< HEAD
         width: 100%;
+=======
+		width: 100%;
+>>>>>>> sasaki
     min-width: 600px;
     max-width: 920px;
 }
@@ -320,6 +493,7 @@ header {
 /* 記事一覧 */
 
 .top_content1 {
+<<<<<<< HEAD
         display: flex;
         justify-content: center;
         position: relative;
@@ -391,12 +565,86 @@ header {
 
 .post span {
         text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+=======
+		display: flex;
+		justify-content: center;
+		position: relative;
+		width: 100%;
+}
+
+.posts {
+		display: grid;
+		gap: 10px;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: 120px 100px 120px 100px 120px;
+		width: 100%;
+		padding: 40px 10px;
+}
+
+.post {
+		position: relative;
+		border-radius: 5px;
+    box-shadow: 0 0 4px 3px rgba(100, 100, 100, 0.1);
+		overflow: hidden;
+}
+
+.post:nth-child(1) {
+		grid-column: 1 / span 2;
+		grid-row: 1 / span 2;
+}
+
+.post:nth-child(4) {
+		grid-column: 3 / span 2;
+		grid-row: 2 / span 2;
+}
+
+.post:nth-child(8) {
+		grid-column: 2 / span 2;
+		grid-row: 4 / span 2;
+}
+
+.post a {
+		width: 100%;
+		height: 100%;
+		color: #fff;
+}
+
+.post img {
+		position: absolute;
+		z-index: 0;
+}
+
+.post_meta {
+		position: absolute;
+		bottom: 0;
+		z-index: 100;
+		width: 100%;
+		height: 60px;
+		padding: 5px;
+		background: rgba(0, 0, 0, 0.5);
+		transition: all 0.5s;
+}
+
+.post:hover .post_meta {
+		background: rgba(242, 50, 42, 0.5);
+}
+
+.post h3 {
+		font-size: 1.5em;
+		font-weight: 500;
+		text-shadow: 0 0 3px #000, 0 0 2px #000;
+}
+
+.post span {
+		text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+>>>>>>> sasaki
 }
 
 
 /* トップコンテンツ2 */
 
 .top_content2 {
+<<<<<<< HEAD
         display: flex;
         justify-content: center;
         position: relative;
@@ -482,12 +730,100 @@ header {
         justify-content: center;
         align-items: flex-end;
         padding: 80px 10px 0;
+=======
+		display: flex;
+		justify-content: center;
+		position: relative;
+		width: 100%;
+		color: #fff;
+		background: url(../img/top_content1_back.jpg) center center/ cover no-repeat;
+		box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
+}
+
+.top_content2::before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(#05FBFF, #31419A);
+		opacity: 0.9;
+}
+
+.top_content2 ul {
+		z-index: 100;
+		padding: 0 0 50px 20px;
+}
+
+.top_content2 img {
+		z-index: 100;
+		width: 400px;
+		height: 300px;
+}
+
+.top_content2 h2 {
+		letter-spacing: 2px;
+		font-size: 2.5em;
+		font-weight: 700;
+		text-shadow: 0 0 3px #000, 0 0 2px #000, 0 0 2px #000;
+}
+
+.top_content2 h3 {
+		font-size: 2em;
+		font-weight: 500;
+		text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.top_content2 li {
+		position: relative;
+		padding-top: 20px;
+}
+
+.top_content2 li:not(:nth-child(1)) {
+		padding-left: 60px;
+}
+
+.top_content2 li::before {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 40%;
+		left: 0;
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		font-size: 2em;
+		font-family: "Font Awesome 5 Free";
+		font-weight: 900;
+		background: #000;
+		box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1);
+}
+
+.top_content2 li:nth-child(2)::before {
+		content: "\f09e";
+}
+
+.top_content2 li:nth-child(3)::before {
+		content: "\f0c0";
+}
+
+.top_content2 li:nth-child(4)::before {
+		content: "\f2b5";
+}
+
+.top_content2 .container {
+		flex-flow: row nowrap;
+		justify-content: center;
+		align-items: flex-end;
+		padding: 80px 10px 0;
+>>>>>>> sasaki
 }
 
 
 /* フッター */
 
 footer {
+<<<<<<< HEAD
         display: flex;
         justify-content: center;
         width: 100%;
@@ -500,3 +836,17 @@ footer .container {
         align-items: center;
         padding: 80px 10px;
 }
+=======
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		background: #2e2e2e;
+}
+
+footer .container {
+		flex-flow: row nowrap;
+		justify-content: center;
+		align-items: center;
+		padding: 80px 10px;
+}
+>>>>>>> sasaki
