@@ -1,0 +1,502 @@
+/* Google Fonts */
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900');
+
+
+/* ノーマライズ */
+
+* {
+        box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+caption, tbody, tfoot, thead,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+        text-decoration: none;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+        display: block;
+}
+
+ol, ul, li {
+        list-style: none;
+}
+
+blockquote, q {
+        quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+        content: '';
+        content: none;
+}
+
+table {
+        border-collapse: collapse;
+        border-spacing: 0;
+}
+
+html, body {
+        width: 100%;
+        height: 100%;
+}
+
+img {
+    vertical-align: bottom;
+}
+
+
+/* 全体 */
+
+p {
+        line-height: 1.8em;
+}
+
+a {
+    color: #6B9DC8;
+}
+
+#wrapper {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        color: #585858;
+    font-size: 12px;
+        font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体";
+    overflow: hidden;
+}
+
+
+/* ヘッダー */
+
+header {
+    display: flex;
+        flex-flow: column nowrap;
+    align-items: center;
+        position: fixed;
+    z-index: 9999;
+        width: 100%;
+    box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.3);
+}
+
+.header_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        height: 50px;
+        padding: 5px 150px;
+        background: rgba(0, 0, 0, 1);
+        transition: all 0.3s;
+}
+
+.header_logo {
+    font-size: 2em;
+    font-weight: 700;
+        color: #fff;
+        transition: all 0.3s;
+}
+
+.header_logo span {
+    color: #5EC0F5 !important;
+}
+
+.hamb {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        align-items: flex-end;
+        position: absolute;
+        right: 20px;
+        width: 120px;
+        height: 40px;
+        padding: 5px;
+        border-radius: 3px;
+        background: #fff;
+        cursor : pointer;
+        transition: all 0.3s;
+}
+
+.hamb::before {
+        content: "MENU";
+        position: absolute;
+        top: 8px;
+        left: 5px;
+        line-height: 1em;
+        font-size: 2em;
+        font-weight: 900;
+        color: #585858;
+}
+
+.hamb_border {
+        content: "";
+        width: 25%;
+        height: 5px;
+        background: #585858;
+        border-radius: 3px;
+        transition: all 1s;
+}
+
+.close1 {
+        position: absolute;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+}
+
+.close2 {
+        position: absolute;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+}
+
+
+/* ヘッダー / ヘッダーメニュー */
+
+.header_menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.9);
+        text-align: center;
+}
+
+.header_menu li:nth-child(2n) {
+        content: "";
+        width: 1px;
+        height: 40px;
+        background: #6B9DC8;
+        opacity: 0.5;
+}
+
+.header_menu a {
+        font-size: 2em;
+        font-weight: 600;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 1);
+}
+
+.header_menu a span {
+        font-size: 0.3em;
+}
+
+
+/* ボディ */
+
+.body {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 100%;
+}
+
+
+/* ピックアップ */
+
+.pickups {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 280px;
+    padding: 50px 30px 10px 230px;
+        margin-top: 50px;
+    background: linear-gradient(135deg, #05FBFF, #31419A);
+        overflow: hidden;
+}
+
+.body::before {
+    content: "";
+    position: absolute;
+    top: 45px;
+    left: 0;
+    z-index: 100;
+    width: 180px;
+    height: 300px;
+    background: url(../img/pickups_side.png) left top/ cover no-repeat;
+    box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.3);
+}
+
+.pickups h2 {
+    position: absolute;
+    top: 15px;
+    left: 80px;
+    z-index: 200;
+    width: 100%;
+    color: #fff;
+    line-height: 1em;
+    font-size: 1.7em;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.pickup {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    min-width: 255px;
+    height: 220px;
+    padding: 10px 10px 5px;
+    border-right: 0.5px solid #f2f2f2;
+    background: #fff;
+    overflow: hidden;
+        transition: all 0.5s;
+}
+
+.pickup:hover {
+        background: #F6F5F5;
+}
+
+.pickup h3 {
+    width: 100%;
+    line-height: 1.2em;
+    color: #000;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.pickup ul {
+    width: 100%;
+}
+
+.pickup li {
+    padding-bottom: 2px;
+    font-size: 1.1em;
+    color: #848484;
+}
+
+.pickup img {
+    width: 100px;
+    height: auto;
+    margin: 0 1px;
+    border-radius: 5px;
+}
+
+.pickup span {
+    padding: 1px 3px;
+    margin-right: 5px;
+    border-radius: 3px;
+    font-size: 0.5em;
+    color: #fff;
+    background: #53CE4C;
+}
+
+.border_none {
+    border: none;
+}
+
+
+/* コンテナー */
+
+.container {
+    display: flex;
+        width: 100%;
+    min-width: 600px;
+    max-width: 920px;
+}
+
+
+/* 記事一覧 */
+
+.top_content1 {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+}
+
+.posts {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 120px 100px 120px 100px 120px;
+        width: 100%;
+        padding: 40px 10px;
+}
+
+.post {
+        position: relative;
+        border-radius: 5px;
+    box-shadow: 0 0 4px 3px rgba(100, 100, 100, 0.1);
+        overflow: hidden;
+}
+
+.post:nth-child(1) {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
+}
+
+.post:nth-child(4) {
+        grid-column: 3 / span 2;
+        grid-row: 2 / span 2;
+}
+
+.post:nth-child(8) {
+        grid-column: 2 / span 2;
+        grid-row: 4 / span 2;
+}
+
+.post a {
+        width: 100%;
+        height: 100%;
+        color: #fff;
+}
+
+.post img {
+        position: absolute;
+        z-index: 0;
+}
+
+.post_meta {
+        position: absolute;
+        bottom: 0;
+        z-index: 100;
+        width: 100%;
+        height: 60px;
+        padding: 5px;
+        background: rgba(0, 0, 0, 0.5);
+        transition: all 0.5s;
+}
+
+.post:hover .post_meta {
+        background: rgba(242, 50, 42, 0.5);
+}
+
+.post h3 {
+        font-size: 1.5em;
+        font-weight: 500;
+        text-shadow: 0 0 3px #000, 0 0 2px #000;
+}
+
+.post span {
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+
+/* トップコンテンツ2 */
+
+.top_content2 {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        color: #fff;
+        background: url(../img/top_content1_back.jpg) center center/ cover no-repeat;
+        box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
+}
+
+.top_content2::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(#05FBFF, #31419A);
+        opacity: 0.9;
+}
+
+.top_content2 ul {
+        z-index: 100;
+        padding: 0 0 50px 20px;
+}
+
+.top_content2 img {
+        z-index: 100;
+        width: 400px;
+        height: 300px;
+}
+
+.top_content2 h2 {
+        letter-spacing: 2px;
+        font-size: 2.5em;
+        font-weight: 700;
+        text-shadow: 0 0 3px #000, 0 0 2px #000, 0 0 2px #000;
+}
+
+.top_content2 h3 {
+        font-size: 2em;
+        font-weight: 500;
+        text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.top_content2 li {
+        position: relative;
+        padding-top: 20px;
+}
+
+.top_content2 li:not(:nth-child(1)) {
+        padding-left: 60px;
+}
+
+.top_content2 li::before {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 40%;
+        left: 0;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 2em;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        background: #000;
+        box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1);
+}
+
+.top_content2 li:nth-child(2)::before {
+        content: "\f09e";
+}
+
+.top_content2 li:nth-child(3)::before {
+        content: "\f0c0";
+}
+
+.top_content2 li:nth-child(4)::before {
+        content: "\f2b5";
+}
+
+.top_content2 .container {
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: flex-end;
+        padding: 80px 10px 0;
+}
+
+
+/* フッター */
+
+footer {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        background: #2e2e2e;
+}
+
+footer .container {
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 80px 10px;
+}
