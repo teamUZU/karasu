@@ -1,0 +1,180 @@
+{% load static %}
+<html lang="ja">
+
+<head>
+
+    <title>LINGs Media Warehouse</title>
+
+    <!-- スタイルシート -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- jQuery 読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Font Awesome 読み込み -->
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- ヘッダー -->
+    <header>
+        <div class="header_container">
+            <a class="header_logo" href="">LINGs <span>M</span>edia Warehouse</a>
+            <ul class="hamb">
+                <li class="hamb_border"></li>
+                <li class="hamb_border"></li>
+                <li class="hamb_border"></li>
+            </ul>
+        </div>
+        <ul class="header_menu">
+            <li><a href="">SEARCH<br /><span>お仕事を検索する</span></a></li>
+            <li></li>
+            <li><a href="">ABOUT<br /><span>LINGs Media Warehouseとは？</span></a></li>
+            <li></li>
+            <li><a href="">TIPS<br /><span>お役立ち情報</span></a></li>
+        </ul>
+    </header>
+    <!-- END ヘッダー -->
+
+    <!-- ボディ -->
+    <div class="body">
+
+        <div class="pickups">
+
+            <h2>オススメのお仕事情報</h2>
+
+            <a class="pickup" href="">
+                <h3>ピックアップ①ピックアップ①ピックアップ①</h3>
+                <ul>
+                    <li><span>時給</span>¥1,100〜＋交通費</li>
+                    <li><span>勤務地</span>東京都新宿区</li>
+                </ul>
+                <img src="{% static "img/sample1.jpg"%}" />
+                <img src="{% static "img/sample2.jpg"%}" />
+            </a>
+
+            <a class="pickup" href="">
+                <h3>ピックアップ②ピックアップ②ピックアップ②</h3>
+                <ul>
+                    <li><span>時給</span>¥1,100〜＋交通費</li>
+                    <li><span>勤務地</span>東京都新宿区</li>
+                </ul>
+                <img src="{% static "img/sample3.jpg"%}" />
+                <img src="{% static "img/sample4.jpg"%}" />
+            </a>
+
+            <a class="pickup" href="">
+                <h3>ピックアップ③ピックアップ③ピックアップ③</h3>
+                <ul>
+                    <li><span>時給</span>¥1,100〜＋交通費</li>
+                    <li><span>勤務地</span>東京都新宿区</li>
+                </ul>
+                <img src="{% static "img/sample5.jpg"%}" />
+                <img src="{% static "img/sample6.jpg"%}" />
+            </a>
+
+            <a class="pickup border_none" href="">
+                <h3>ピックアップ④ピックアップ④ピックアップ④</h3>
+                <ul>
+                    <li><span>時給</span>¥1,100〜＋交通費</li>
+                    <li><span>勤務地</span>東京都新宿区</li>
+                </ul>
+                <img src="{% static "img/sample7.jpg"%}" />
+                <img src="{% static "img/sample8.jpg"%}" />
+            </a>
+
+        </div>
+
+        <!-- トップコンテンツ1 -->
+        <div class="top_content1">
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+        <!-- END トップコンテンツ1 -->
+
+        <!-- トップコンテンツ2 -->
+        <div class="top_content2">
+
+            <div class="container">
+
+                <img src="{% static "img/top_content1_main.png"%}" />
+
+                <ul>
+
+                    <li><h2>LINGs Media Warehouseの<br />提供する価値</h2></li>
+                    <li>
+                        <h3>リアルな就活情報の発信</h3>
+                        <p>就活が終わった内定者ライターの実体験と、実際の企業の人事の方の意見も織り交ぜて記事を書くため、よりリアルな情報を発信することができます。</p>
+                    </li>
+                    <li>
+                        <h3>仲間ができる</h3>
+                        <p>TSUNAGUの開催するイベントに参加することによって、留学生同士はもちろん、日本人学生とも仲良くなることができ、一緒に目標に向かって頑張る仲間を作ることができます。</p>
+                    </li>
+                    <li>
+                        <h3>日本の企業と繋がれる</h3>
+                        <p>TSUNAGUの開催する就活イベントでは様々な企業の方と話す機会があり、イベントを通して日本の様々な企業と繋がることができます。</p>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+        <!-- END トップコンテンツ2 -->
+
+    </div>
+    <!-- END ボディ -->
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <p>Copyright 2019- All rights reserved, LINGs Media Warehouse</p>
+        </div>
+    </footer>
+    <!-- END フッター -->
+
+</div>
+<!-- END wrapper -->
+
+<script>
+
+$(function(){
+
+    $(".header_menu").hide();
+
+    $(".hamb").click(function(){
+    		$(".header_menu").slideToggle();
+        $(".hamb_border:nth-child(1)").toggleClass("close1");
+        $(".hamb_border:nth-child(2)").toggle();
+        $(".hamb_border:nth-child(3)").toggleClass("close2");
+    });
+
+    // スクロールした場合
+    $(window).scroll(function(){
+        // スクロール位置が400を超えた場合
+        if ($(this).scrollTop() > 320) { //トップからのスクロール位置を基準に
+            $('.header_container').css('background', 'rgba(255, 255, 255, 0.9)');
+            $('.header_logo').css('color', '#000');
+            $('.hamb').css('background', 'none');
+        }
+        // スクロール位置が400以下の場合
+        else {
+            $('.header_container').css('background', 'rgba(0, 0, 0, 1)');
+            $('.header_logo').css('color', '#fff');
+            $('.hamb').css('background', '#fff');
+        }
+    });
+
+});
+
+</script>
+
+</body>
+
+</html>
