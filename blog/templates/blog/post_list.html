@@ -1,25 +1,51 @@
 {% extends 'blog/base.html' %}
+{% load static %}
 
 {% block content %}
-
+	<!-- トップコンテンツ1 -->
+	<div class="top_content1">
 		<ul class="posts container">
-
-		{% for post in posts %}
+			{% for post in posts %}
 	    	<li class="post">
-						<a href="{% url 'post_detail' pk=post.pk %}">
-								<img src="/static/img/sample3.jpg" />
-								<div class="post_meta">
-										<span>{{ post.text|linebreaksbr }}</span>
-					        	<h3>{{ post.title }}</h3>
-								</div>
-	    			</a>
-				</li>
-		{% endfor %}
-
+				<a href="{% url 'post_detail' pk=post.pk %}">
+					<!-- サムネ画像 -->
+					{% if post.image %}
+					<div class="image">
+						<img src="{{ post.image.thumbnail.url }}" />
+					</div>
+					{% endif %}
+					<!-- END サムネ画像 -->
+					<div class="post_meta">
+						<span>{{ post.subtitle }}</span>
+					    <h3>{{ post.title }}</h3>
+					</div>						
+	    		</a>
+			</li>
+			{% endfor %}
 		</ul>
+	</div>
+	<!-- END トップコンテンツ1 -->
 
-<<<<<<< HEAD
-{% endblock %}
-=======
-{% endblock %}
->>>>>>> sasaki
+	<!-- トップコンテンツ2 -->
+        <div class="top_content2">
+            <div class="container">
+                <img src="{% static 'img/top_content1_main.png' %}" />
+                <ul>
+                    <li><h2>LINGs Media Warehouseの<br />提供する価値</h2></li>
+                    <li>
+                        <h3>リアルな就活情報の発信</h3>
+                        <p>就活が終わった内定者ライターの実体験と、実際の企業の人事の方の意見も織り交ぜて記事を書くため、よりリアルな情報を発信することができます。</p>
+                    </li>
+                    <li>
+                        <h3>仲間ができる</h3>
+                        <p>TSUNAGUの開催するイベントに参加することによって、留学生同士はもちろん、日本人学生とも仲良くなることができ、一緒に目標に向かって頑張る仲間を作ることができます。</p>
+                    </li>
+                    <li>
+                        <h3>日本の企業と繋がれる</h3>
+                        <p>TSUNAGUの開催する就活イベントでは様々な企業の方と話す機会があり、イベントを通して日本の様々な企業と繋がることができます。</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- END トップコンテンツ2 -->
+{% endblock content %}
