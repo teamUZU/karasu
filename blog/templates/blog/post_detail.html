@@ -2,28 +2,52 @@
 
 {% block content %}
 
-<div class="post detail">
+<!-- 記事詳細 -->
+<div class="post_detail">
 
-		{% if post.published_date %}
-		<div class="date">
-				{{ post.published_date }}
+		<!-- コンテナー -->
+		<div class="container">
+
+				<div class="post_detail1">
+
+						<!-- ヘッダー -->
+						<div class="post_detail_header">
+								<!-- サムネ画像 -->
+								{% if post.image %}
+								<img src="{{ post.image.thumbnail.url }}" />
+								{% endif %}
+								<!-- END サムネ画像 -->
+								<div class="post_detail_title">
+										<h2><span>{{ post.subtitle }}</span><br />{{ post.title }}</h2>
+										{% if post.published_date %}
+										<div class="post_detail_date">
+												{{ post.published_date }}
+										</div>
+										{% endif %}
+								</div>
+						</div>
+						<!-- END ヘッダー -->
+
+						<!-- ボディ -->
+						<div class="post_detail_body">
+								{% if post.image %}
+								<img src="{{ post.image.large.url }}"/>
+								{% endif %}
+								<p>{{ post.text|linebreaks }}</p>
+								<a class="readmore" href="">もっと見る</a>
+						</div>
+						<!-- END ボディ -->
+
+				</div>
+
+				<div class="post_detail2">
+
+				</div>
+
 		</div>
-		{% endif %}
-
-		<a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">
-
-		<span class="glyphicon glyphicon-pencil"></span></a>
-
-		{% if post.image %}
-		<div class="image">
-				<!-- <img src="{{ post.image.large.url }}"/> -->
-		</div>
-		{% endif %}
-
-		<h2>{{ post.title }}</h2>
-
-		<p>{{ post.text|linebreaks }}</p>
+		<!-- END コンテナー -->
 
 </div>
+<!-- END 記事詳細 -->
 
 {% endblock content %}

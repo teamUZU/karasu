@@ -23,7 +23,7 @@
     <!-- ヘッダー -->
     <header>
         <div class="header_container">
-            <a class="header_logo" href="">LINGs <span>M</span>edia Warehouse</a>
+            <a class="header_logo" href="/">LINGs <span>M</span>edia Warehouse</a>
             <ul class="hamb">
                 <li class="hamb_border"></li>
                 <li class="hamb_border"></li>
@@ -90,7 +90,6 @@
         </div>
 
         {% block content %}
-        <!-- トップコンテンツ1とトップコンテンツ2はpost_listに移動 -->
         {% endblock %}
 
     </div>
@@ -122,13 +121,13 @@ $(function(){
 
     // スクロールした場合
     $(window).scroll(function(){
-        // スクロール位置が400を超えた場合
-        if ($(this).scrollTop() > 320) { //トップからのスクロール位置を基準に
+        // スクロール位置が280を超えた場合
+        if ($(this).scrollTop() > 280) { //トップからのスクロール位置を基準に
             $('.header_container').css('background', 'rgba(255, 255, 255, 0.9)');
             $('.header_logo').css('color', '#000');
             $('.hamb').css('background', 'none');
         }
-        // スクロール位置が400以下の場合
+        // スクロール位置が280以下の場合
         else {
             $('.header_container').css('background', 'rgba(0, 0, 0, 1)');
             $('.header_logo').css('color', '#fff');
