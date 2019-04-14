@@ -12,28 +12,23 @@
 
 						<!-- ヘッダー -->
 						<div class="post_detail_header">
-								<!-- サムネ画像 -->
+
 								{% if post.image %}
-								<img src="{{ post.image.thumbnail.url }}" />
+										<img src="{{ post.image.large.url }}"/>
 								{% endif %}
-								<!-- END サムネ画像 -->
-								<div class="post_detail_title">
-										<h2><span>{{ post.subtitle }}</span><br />{{ post.title }}</h2>
-										{% if post.published_date %}
-										<div class="post_detail_date">
-												{{ post.published_date }}
-										</div>
-										{% endif %}
-								</div>
+
+								<h2>{{ post.title }}</h2>
+
+								{% if post.published_date %}
+										<div class="post_detail_date">{{ post.published_date }}</div>
+								{% endif %}
+
 						</div>
 						<!-- END ヘッダー -->
 
 						<!-- ボディ -->
 						<div class="post_detail_body">
-								{% if post.image %}
-								<img src="{{ post.image.large.url }}"/>
-								{% endif %}
-								<p>{{ post.text|linebreaks }}</p>
+								{{ post.text|linebreaks }}
 								<a class="readmore" href="">もっと見る</a>
 						</div>
 						<!-- END ボディ -->
