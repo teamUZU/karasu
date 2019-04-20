@@ -3,24 +3,40 @@
 
 {% block content %}
 
+<!-- ピックアップコンテンツ -->
+<div class="pickups">
+    <h2>オススメのお仕事情報</h2>
+        {% for pick in picks %}
+        <li class="pickup_post">
+            <a href="{% url 'post_detail' pk=pick.pk %}">
+                <h3>{{ pick.title }}</h3>
+                    <li>{{ pick.subtitle }}</li>
+                    {% if pick.image %}
+                    <img src="{{ pick.image.thumbnail.url }}" />
+                    {% endif %}
+            </a>
+        </li>
+        {% endfor %}
+</div>
+
+<!-- END ピックアップコンテンツ -->
+
 <!-- トップコンテンツ1 -->
 <div class="top_content1">
-		<ul class="posts container">
-				{% for post in posts %}
-	    	<li class="post">
-						<a href="{% url 'post_detail' pk=post.pk %}">
-								<!-- サムネ画像 -->
-								{% if post.image %}
-								<img src="{{ post.image.thumbnail.url }}" />
-								{% endif %}
-								<!-- END サムネ画像 -->
-								<div class="post_meta">
-								    <h2><span>{{ post.subtitle }}</span><br />{{ post.title }}</h2>
-								</div>
-		    		</a>
-				</li>
-				{% endfor %}
-		</ul>
+    <ul class="posts container">
+        {% for post in posts %}
+        <li class="post">
+            <a href="{% url 'post_detail' pk=post.pk %}">
+                {% if post.image %}
+                <img src="{{ post.image.thumbnail.url }}" />
+                {% endif %}
+                <div class="post_meta">
+                    <h2><span>{{ post.subtitle }}</span><br />{{ post.title }}</h2>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
 </div>
 <!-- END トップコンテンツ1 -->
 

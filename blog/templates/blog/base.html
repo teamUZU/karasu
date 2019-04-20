@@ -43,52 +43,6 @@
     <!-- ボディ -->
     <div class="body">
 
-        <div class="pickups">
-
-            <h2>オススメのお仕事情報</h2>
-
-            <a class="pickup" href="">
-                <h3>ピックアップ①ピックアップ①ピックアップ①</h3>
-                <ul>
-                    <li><span>時給</span>¥1,100〜＋交通費</li>
-                    <li><span>勤務地</span>東京都新宿区</li>
-                </ul>
-                <img src="{% static 'img/sample1.jpg' %}" />
-                <img src="{% static 'img/sample2.jpg' %}" />
-            </a>
-
-            <a class="pickup" href="">
-                <h3>ピックアップ②ピックアップ②ピックアップ②</h3>
-                <ul>
-                    <li><span>時給</span>¥1,100〜＋交通費</li>
-                    <li><span>勤務地</span>東京都新宿区</li>
-                </ul>
-                <img src="{% static 'img/sample3.jpg' %}" />
-                <img src="{% static 'img/sample4.jpg' %}" />
-            </a>
-
-            <a class="pickup" href="">
-                <h3>ピックアップ③ピックアップ③ピックアップ③</h3>
-                <ul>
-                    <li><span>時給</span>¥1,100〜＋交通費</li>
-                    <li><span>勤務地</span>東京都新宿区</li>
-                </ul>
-                <img src="{% static 'img/sample5.jpg' %}" />
-                <img src="{% static 'img/sample6.jpg' %}" />
-            </a>
-
-            <a class="pickup border_none" href="">
-                <h3>ピックアップ④ピックアップ④ピックアップ④</h3>
-                <ul>
-                    <li><span>時給</span>¥1,100〜＋交通費</li>
-                    <li><span>勤務地</span>東京都新宿区</li>
-                </ul>
-                <img src="{% static 'img/sample7.jpg' %}" />
-                <img src="{% static 'img/sample8.jpg' %}" />
-            </a>
-
-        </div>
-
         {% block content %}
         {% endblock %}
 
@@ -113,7 +67,7 @@ $(function(){
     $(".header_menu").hide();
 
     $(".hamb").click(function(){
-    		$(".header_menu").slideToggle();
+            $(".header_menu").slideToggle();
         $(".hamb_border:nth-child(1)").toggleClass("close1");
         $(".hamb_border:nth-child(2)").toggle();
         $(".hamb_border:nth-child(3)").toggleClass("close2");
