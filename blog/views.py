@@ -3,11 +3,13 @@ from django.utils import timezone
 from .models import Post
 from .forms import PostForm
 from django.shortcuts import redirect
+from django.core.paginator import Paginator # ページネーションで追記したインポート文
 
-def post_list(request): 
+def post_list(request, num=1):
 	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date').reverse()
 	picks = Post.objects.filter(pickup_check=True).order_by('published_date').reverse()
-	return render(request, 'blog/post_list.html', {'posts': posts, 'picks': picks})
+	page = Paginator(posts, 11) # ページネーションで追記した変数page
+	return render(request, 'blog/post_list.html', {'posts': page.get_page(num), 'picks': picks})
 
 def post_detail(request, pk):
 	post = get_object_or_404(Post, pk=pk)

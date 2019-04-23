@@ -40,6 +40,22 @@
 </div>
 <!-- END トップコンテンツ1 -->
 
+<!-- ページネーションのリンク設置 -->
+<div class="pagination">
+    {% if posts.has_previous %}
+        <a href="{% url 'post_list' %}">&laquo;first</a>
+        <a href="{% url 'post_list' %}{{ posts.previous_page_number }}">&laquo;prev</a>
+    {% endif %}
+    <span class="current">
+        [{{ posts.number }}/{{ posts.paginator.num_pages }}]
+    </span>
+    {% if posts.has_next %}
+        <a href="{% url 'post_list' %}{{ posts.next_page_number }}">next&raquo;</a>
+        <a href="{% url 'post_list' %}{{ posts.paginator.num_pages }}">last&raquo;</a>
+    {% endif %}
+</div>
+<!-- END ページネーションのリンク -->
+
 <!-- トップコンテンツ2 -->
 <div class="top_content2">
     <div class="container">
