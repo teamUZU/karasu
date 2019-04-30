@@ -204,7 +204,7 @@ header {
 
 .pickups {
     width: 100%;
-    padding: 10px 50px 10px 230px;
+    padding: 10px 50px 10px 190px;
     margin-top: 50px;
     background: linear-gradient(135deg, #05FBFF, #31419A);
 }
@@ -291,11 +291,6 @@ header {
 } 
 
 
-
-
-
-
-
 /* フッター */
 
 footer {
@@ -309,7 +304,7 @@ footer .container {
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    padding: 80px 10px;
+    padding: 60px 10px;
 }
 
 
@@ -391,10 +386,15 @@ footer .container {
     background: rgba(242, 50, 42, 0.5);
 }
 
-.post h2 {
+.post_meta h2 {
     font-size: 1.5em;
     font-weight: 500;
+    text-align: center;
     text-shadow: 0 0 3px #000, 0 0 2px #000;
+}
+
+.post_meta h2 span {
+    font-size: 0.6em;
 }
 
 
