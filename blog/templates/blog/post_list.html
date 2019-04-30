@@ -3,26 +3,59 @@
 
 {% block content %}
 
+<!-- ピックアップコンテンツ -->
+<div class="pickups">
+    <h2>オススメのお仕事情報</h2>
+    <ul>
+        {% for pick in picks %}
+        <li>
+            <a href="{% url 'post_detail' pk=pick.pk %}">
+                {% if pick.image %}
+                <img src="{{ pick.image.thumbnail.url }}" />
+                {% endif %}
+                <h3>{{ pick.title }}</h3>
+                <h4>{{ pick.subtitle }}</h4>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<!-- END ピックアップコンテンツ -->
+
 <!-- トップコンテンツ1 -->
 <div class="top_content1">
-		<ul class="posts container">
-				{% for post in posts %}
-	    	<li class="post">
-						<a href="{% url 'post_detail' pk=post.pk %}">
-								<!-- サムネ画像 -->
-								{% if post.image %}
-								<img src="{{ post.image.thumbnail.url }}" />
-								{% endif %}
-								<!-- END サムネ画像 -->
-								<div class="post_meta">
-								    <h2><span>{{ post.subtitle }}</span><br />{{ post.title }}</h2>
-								</div>
-		    		</a>
-				</li>
-				{% endfor %}
-		</ul>
+    <ul class="posts container">
+        {% for post in posts %}
+        <li class="post">
+            <a href="{% url 'post_detail' pk=post.pk %}">
+                {% if post.image %}
+                <img src="{{ post.image.thumbnail.url }}" />
+                {% endif %}
+                <div class="post_meta">
+                    <h2>{{ post.title }}<br /><span>{{ post.subtitle }}</span></h2>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
 </div>
 <!-- END トップコンテンツ1 -->
+
+<!-- ページネーション -->
+<div class="pagination">
+    {% if posts.has_previous %}
+    <a class="pagination_first" href="{% url 'post_list' %}"><i class="fas fa-angle-double-left"></i></a>
+    <a class="pagination_prev" href="{% url 'post_list' %}{{ posts.previous_page_number }}"><i class="fas fa-angle-left"></i></a>
+    {% endif %}
+    <div class="current">
+    {{ posts.number }}/{{ posts.paginator.num_pages }}
+    </div>
+    {% if posts.has_next %}
+    <a class="pagination_next" href="{% url 'post_list' %}{{ posts.next_page_number }}"><i class="fas fa-angle-right"></i></a>
+    <a class="pagination_last" href="{% url 'post_list' %}{{ posts.paginator.num_pages }}"><i class="fas fa-angle-double-right"></i></a>
+    {% endif %}
+</div>
+<!-- END ページネーション -->
 
 <!-- トップコンテンツ2 -->
 <div class="top_content2">
@@ -46,5 +79,19 @@
     </div>
 </div>
 <!-- END トップコンテンツ2 -->
+
+<script>
+
+$(function(){
+
+    $('.pickups ul').slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
+        slidesToShow: 4,
+    });
+
+});
+
+</script>
 
 {% endblock content %}

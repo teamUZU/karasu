@@ -11,6 +11,11 @@
     <!-- jQuery 読み込み -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <!-- slick 読み込み -->
+    <link href="{% static 'slick/slick-theme.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'slick/slick.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'slick/slick.min.js' %}" type="text/javascript"></script>    
+
     <!-- Font Awesome 読み込み -->
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
 
@@ -43,52 +48,6 @@
     <!-- ボディ -->
     <div class="body">
 
-        <div class="pickups">
-
-            <h2>オススメのお仕事情報</h2>
-
-            <a class="pickup" href="">
-                <h3>ピックアップ①ピックアップ①ピックアップ①</h3>
-                <ul>
-                    <li><span>時給</span>¥1,100〜＋交通費</li>
-                    <li><span>勤務地</span>東京都新宿区</li>
-                </ul>
-                <img src="{% static 'img/sample1.jpg' %}" />
-                <img src="{% static 'img/sample2.jpg' %}" />
-            </a>
-
-            <a class="pickup" href="">
-                <h3>ピックアップ②ピックアップ②ピックアップ②</h3>
-                <ul>
-                    <li><span>時給</span>¥1,100〜＋交通費</li>
-                    <li><span>勤務地</span>東京都新宿区</li>
-                </ul>
-                <img src="{% static 'img/sample3.jpg' %}" />
-                <img src="{% static 'img/sample4.jpg' %}" />
-            </a>
-
-            <a class="pickup" href="">
-                <h3>ピックアップ③ピックアップ③ピックアップ③</h3>
-                <ul>
-                    <li><span>時給</span>¥1,100〜＋交通費</li>
-                    <li><span>勤務地</span>東京都新宿区</li>
-                </ul>
-                <img src="{% static 'img/sample5.jpg' %}" />
-                <img src="{% static 'img/sample6.jpg' %}" />
-            </a>
-
-            <a class="pickup border_none" href="">
-                <h3>ピックアップ④ピックアップ④ピックアップ④</h3>
-                <ul>
-                    <li><span>時給</span>¥1,100〜＋交通費</li>
-                    <li><span>勤務地</span>東京都新宿区</li>
-                </ul>
-                <img src="{% static 'img/sample7.jpg' %}" />
-                <img src="{% static 'img/sample8.jpg' %}" />
-            </a>
-
-        </div>
-
         {% block content %}
         {% endblock %}
 
@@ -113,7 +72,7 @@ $(function(){
     $(".header_menu").hide();
 
     $(".hamb").click(function(){
-    		$(".header_menu").slideToggle();
+            $(".header_menu").slideToggle();
         $(".hamb_border:nth-child(1)").toggleClass("close1");
         $(".hamb_border:nth-child(2)").toggle();
         $(".hamb_border:nth-child(3)").toggleClass("close2");
@@ -122,7 +81,7 @@ $(function(){
     // スクロールした場合
     $(window).scroll(function(){
         // スクロール位置が280を超えた場合
-        if ($(this).scrollTop() > 280) { //トップからのスクロール位置を基準に
+        if ($(this).scrollTop() > 200) { //トップからのスクロール位置を基準に
             $('.header_container').css('background', 'rgba(255, 255, 255, 0.9)');
             $('.header_logo').css('color', '#000');
             $('.hamb').css('background', 'none');
@@ -138,7 +97,7 @@ $(function(){
 });
 
 </script>
-
+        
 </body>
 
 </html>

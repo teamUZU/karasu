@@ -9,6 +9,7 @@ class Post(models.Model):
 	text = models.TextField()
 	created_date = models.DateTimeField(default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)
+	pickup_check = models.BooleanField(default=False)
 	image = StdImageField(
 		upload_to='image/',
 		blank=True,

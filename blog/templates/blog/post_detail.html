@@ -1,48 +1,76 @@
 {% extends 'blog/base.html' %}
+{% load static %}
 
 {% block content %}
 
+<!-- ピックアップコンテンツ -->
+<div class="pickups">
+    <h2>オススメのお仕事情報</h2>
+    <ul>
+        {% for pick in picks %}
+        <li>
+            <a href="{% url 'post_detail' pk=pick.pk %}">
+                {% if pick.image %}
+                <img src="{{ pick.image.thumbnail.url }}" />
+                {% endif %}
+                <h3>{{ pick.title }}</h3>
+                <h4>{{ pick.subtitle }}</h4>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<!-- END ピックアップコンテンツ -->
+
 <!-- 記事詳細 -->
 <div class="post_detail">
+	<!-- コンテナー -->
+	<div class="container">
+		<div class="post_detail1">
+			
+			<!-- ヘッダー -->
+			<div class="post_detail_header">
+				{% if post.image %}
+				<img src="{{ post.image.large.url }}"/>
+				{% endif %}
+				<h2>{{ post.title }}</h2>
+				{% if post.published_date %}
+				<div class="post_detail_date">{{ post.published_date }}</div>
+				{% endif %}
+			</div>
+			<!-- END ヘッダー -->
 
-		<!-- コンテナー -->
-		<div class="container">
-
-				<div class="post_detail1">
-
-						<!-- ヘッダー -->
-						<div class="post_detail_header">
-
-								{% if post.image %}
-										<img src="{{ post.image.large.url }}"/>
-								{% endif %}
-
-								<h2>{{ post.title }}</h2>
-
-								{% if post.published_date %}
-										<div class="post_detail_date">{{ post.published_date }}</div>
-								{% endif %}
-
-						</div>
-						<!-- END ヘッダー -->
-
-						<!-- ボディ -->
-						<div class="post_detail_body">
-								{{ post.text|linebreaks }}
-								<a class="readmore" href="">もっと見る</a>
-						</div>
-						<!-- END ボディ -->
-
-				</div>
-
-				<div class="post_detail2">
-
-				</div>
+			<!-- ボディ -->
+			<div class="post_detail_body">
+				{{ post.text|linebreaks }}
+				<a class="readmore" href="">もっと見る</a>
+			</div>
+			<!-- END ボディ -->
 
 		</div>
-		<!-- END コンテナー -->
+
+		<div class="post_detail2">
+
+		</div>
+
+	</div>
+	<!-- END コンテナー -->
 
 </div>
 <!-- END 記事詳細 -->
+
+<script>
+
+$(function(){
+
+	$('.pickups ul').slick({
+		autoplay: true,
+		autoplaySpeed: 3000,
+		slidesToShow: 4,
+	});
+
+});
+	
+</script>
 
 {% endblock content %}
