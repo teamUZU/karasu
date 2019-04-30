@@ -11,6 +11,11 @@
     <!-- jQuery 読み込み -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <!-- slick 読み込み -->
+    <link href="{% static 'slick/slick-theme.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'slick/slick.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'slick/slick.min.js' %}" type="text/javascript"></script>    
+
     <!-- Font Awesome 読み込み -->
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
 
@@ -76,7 +81,7 @@ $(function(){
     // スクロールした場合
     $(window).scroll(function(){
         // スクロール位置が280を超えた場合
-        if ($(this).scrollTop() > 280) { //トップからのスクロール位置を基準に
+        if ($(this).scrollTop() > 200) { //トップからのスクロール位置を基準に
             $('.header_container').css('background', 'rgba(255, 255, 255, 0.9)');
             $('.header_logo').css('color', '#000');
             $('.hamb').css('background', 'none');
@@ -92,7 +97,7 @@ $(function(){
 });
 
 </script>
-
+        
 </body>
 
 </html>

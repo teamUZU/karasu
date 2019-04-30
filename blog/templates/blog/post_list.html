@@ -6,19 +6,20 @@
 <!-- ピックアップコンテンツ -->
 <div class="pickups">
     <h2>オススメのお仕事情報</h2>
+    <ul>
         {% for pick in picks %}
-        <li class="pickup_post">
+        <li>
             <a href="{% url 'post_detail' pk=pick.pk %}">
+                {% if pick.image %}
+                <img src="{{ pick.image.thumbnail.url }}" />
+                {% endif %}
                 <h3>{{ pick.title }}</h3>
-                    <li>{{ pick.subtitle }}</li>
-                    {% if pick.image %}
-                    <img src="{{ pick.image.thumbnail.url }}" />
-                    {% endif %}
+                <h4>{{ pick.subtitle }}</h4>
             </a>
         </li>
         {% endfor %}
+    </ul>
 </div>
-
 <!-- END ピックアップコンテンツ -->
 
 <!-- トップコンテンツ1 -->
@@ -40,21 +41,21 @@
 </div>
 <!-- END トップコンテンツ1 -->
 
-<!-- ページネーションのリンク設置 -->
+<!-- ページネーション -->
 <div class="pagination">
     {% if posts.has_previous %}
-        <a href="{% url 'post_list' %}">&laquo;first</a>
-        <a href="{% url 'post_list' %}{{ posts.previous_page_number }}">&laquo;prev</a>
+    <a class="pagination_first" href="{% url 'post_list' %}"><i class="fas fa-angle-double-left"></i></a>
+    <a class="pagination_prev" href="{% url 'post_list' %}{{ posts.previous_page_number }}"><i class="fas fa-angle-left"></i></a>
     {% endif %}
-    <span class="current">
-        [{{ posts.number }}/{{ posts.paginator.num_pages }}]
-    </span>
+    <div class="current">
+    {{ posts.number }}/{{ posts.paginator.num_pages }}
+    </div>
     {% if posts.has_next %}
-        <a href="{% url 'post_list' %}{{ posts.next_page_number }}">next&raquo;</a>
-        <a href="{% url 'post_list' %}{{ posts.paginator.num_pages }}">last&raquo;</a>
+    <a class="pagination_next" href="{% url 'post_list' %}{{ posts.next_page_number }}"><i class="fas fa-angle-right"></i></a>
+    <a class="pagination_last" href="{% url 'post_list' %}{{ posts.paginator.num_pages }}"><i class="fas fa-angle-double-right"></i></a>
     {% endif %}
 </div>
-<!-- END ページネーションのリンク -->
+<!-- END ページネーション -->
 
 <!-- トップコンテンツ2 -->
 <div class="top_content2">
@@ -78,5 +79,19 @@
     </div>
 </div>
 <!-- END トップコンテンツ2 -->
+
+<script>
+
+$(function(){
+
+    $('.pickups ul').slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
+        slidesToShow: 4,
+    });
+
+});
+
+</script>
 
 {% endblock content %}

@@ -6,19 +6,20 @@
 <!-- ピックアップコンテンツ -->
 <div class="pickups">
     <h2>オススメのお仕事情報</h2>
+    <ul>
         {% for pick in picks %}
-        <li class="pickup_post">
+        <li>
             <a href="{% url 'post_detail' pk=pick.pk %}">
+                {% if pick.image %}
+                <img src="{{ pick.image.thumbnail.url }}" />
+                {% endif %}
                 <h3>{{ pick.title }}</h3>
-                    <li>{{ pick.subtitle }}</li>
-                    {% if pick.image %}
-                    <img src="{{ pick.image.thumbnail.url }}" />
-                    {% endif %}
+                <h4>{{ pick.subtitle }}</h4>
             </a>
         </li>
         {% endfor %}
+    </ul>
 </div>
-
 <!-- END ピックアップコンテンツ -->
 
 <!-- 記事詳細 -->
@@ -57,5 +58,19 @@
 
 </div>
 <!-- END 記事詳細 -->
+
+<script>
+
+$(function(){
+
+	$('.pickups ul').slick({
+		autoplay: true,
+		autoplaySpeed: 3000,
+		slidesToShow: 4,
+	});
+
+});
+	
+</script>
 
 {% endblock content %}
