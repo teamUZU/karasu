@@ -99,15 +99,9 @@ header {
     transition: all 0.3s;
 }
 
-.header_logo {
-    font-size: 2em;
-    font-weight: 700;
-    color: #fff;
-    transition: all 0.3s;
-}
-
-.header_logo span {
-    color: #5EC0F5 !important;
+.header_logo img {
+    width: auto;
+    height: 40px;
 }
 
 .hamb {
