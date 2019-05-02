@@ -28,7 +28,7 @@
     <!-- ヘッダー -->
     <header>
         <div class="header_container">
-            <a class="header_logo" href="/">LINGs <span>M</span>edia Warehouse</a>
+            <a class="header_logo" href="/"><img src="{% static 'img/logo1_white.svg' %}" /></a>
             <ul class="hamb">
                 <li class="hamb_border"></li>
                 <li class="hamb_border"></li>
@@ -38,7 +38,7 @@
         <ul class="header_menu">
             <li><a href="">SEARCH<br /><span>お仕事を検索する</span></a></li>
             <li></li>
-            <li><a href="">ABOUT<br /><span>LINGs Media Warehouseとは？</span></a></li>
+            <li><a href="">ABOUT<br /><span>TSUNAGU KNOTとは？</span></a></li>
             <li></li>
             <li><a href="">TIPS<br /><span>お役立ち情報</span></a></li>
         </ul>
@@ -57,7 +57,7 @@
     <!-- フッター -->
     <footer>
         <div class="container">
-            <p>Copyright 2019- All rights reserved, LINGs Media Warehouse</p>
+            <p>Copyright 2019- All rights reserved, TSUNAGU KNOT</p>
         </div>
     </footer>
     <!-- END フッター -->
@@ -85,12 +85,14 @@ $(function(){
             $('.header_container').css('background', 'rgba(255, 255, 255, 0.9)');
             $('.header_logo').css('color', '#000');
             $('.hamb').css('background', 'none');
+            $('.header_logo img').attr("src","{% static 'img/logo1_black.svg' %}");
         }
         // スクロール位置が280以下の場合
         else {
             $('.header_container').css('background', 'rgba(0, 0, 0, 1)');
             $('.header_logo').css('color', '#fff');
             $('.hamb').css('background', '#fff');
+            $('.header_logo img').attr("src","{% static 'img/logo1_white.svg' %}");
         }
     });
 
