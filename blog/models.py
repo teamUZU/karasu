@@ -44,6 +44,7 @@ class Tip(models.Model):
 	host = models.CharField(max_length=200)
 	site = models.CharField(max_length=200)
 	note = models.CharField(max_length=200)
+	text = models.TextField(max_length=1000, null=True)
 	published_date = models.DateTimeField(blank=True, null=True)
 	STATUS_CHOICES = (
 		('新着', '新着'),
