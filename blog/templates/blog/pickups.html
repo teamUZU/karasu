@@ -1,0 +1,42 @@
+<!-- ピックアップコンテンツ -->
+<div class="pickups">
+    <h2>オススメのお仕事情報</h2>
+    <ul>
+        {% for pick in picks %}
+        <li>
+            <a href="{% url 'post_detail' pk=pick.pk %}">
+                {% if pick.image %}
+                <img src="{{ pick.image.thumbnail.url }}" />
+                {% endif %}
+                <h3>{{ pick.title }}</h3>
+                <h4>{{ pick.subtitle }}</h4>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<!-- END ピックアップコンテンツ -->
+
+<script>
+
+$(function(){
+
+    $('.pickups ul').slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
+        slidesToShow: 4,
+        responsive: [{
+            breakpoint: 961, // 768~1023px以下のサイズに適用
+            settings: {slidesToShow: 3}
+        }, {
+            breakpoint: 721, // 480〜767px以下のサイズに適用
+            settings: {slidesToShow: 2}
+        }, {
+            breakpoint: 481, // 〜479px以下のサイズに適用
+            settings: {slidesToShow: 1}
+        }]
+    });
+
+});
+        
+</script>

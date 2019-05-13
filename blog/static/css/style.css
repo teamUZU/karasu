@@ -15,7 +15,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
     font: inherit;
     vertical-align: baseline;
     text-decoration: none;
@@ -55,7 +54,12 @@ img {
 
 /* 全体 */
 
+html {
+    font-size: 62.5%;
+}
+
 p {
+    padding-bottom: 1.5em;
     line-height: 1.8em;
 }
 
@@ -68,9 +72,17 @@ a {
     flex-flow: column wrap;
     align-items: center;
     color: #585858;
-    font-size: 12px;
     font-family: "Noto Sans JP", "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体";
     overflow: hidden;
+}
+
+
+/* コンテナー */
+
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 960px;
 }
 
 
@@ -93,13 +105,12 @@ header {
     align-items: center;
     position: relative;
     width: 100%;
-    height: 50px;
-    padding: 5px 150px;
+    padding: 5px;
     background: rgba(0, 0, 0, 1);
     transition: all 0.3s;
 }
 
-.header_logo img {
+.header_logo > img {
     width: auto;
     height: 40px;
 }
@@ -107,11 +118,11 @@ header {
 .hamb {
     display: flex;
     flex-flow: column nowrap;
+    align-items: center;
     justify-content: space-around;
-    align-items: flex-end;
     position: absolute;
-    right: 20px;
-    width: 120px;
+    right: 1em;
+    width: 40px;
     height: 40px;
     padding: 5px;
     border-radius: 3px;
@@ -120,20 +131,9 @@ header {
     transition: all 0.3s;
 }
 
-.hamb::before {
-    content: "MENU";
-    position: absolute;
-    top: 8px;
-    left: 5px;
-    line-height: 1em;
-    font-size: 2em;
-    font-weight: 900;
-    color: #585858;
-}
-
 .hamb_border {
     content: "";
-    width: 25%;
+    width: 100%;
     height: 5px;
     background: #585858;
     border-radius: 3px;
@@ -152,35 +152,93 @@ header {
     -webkit-transform: rotate(45deg);
 }
 
+@media (min-width: 481px) {
+
+    .hamb {
+        align-items: flex-end;    
+        width: 120px;
+    }
+
+    .hamb::before {
+        content: "MENU";
+        position: absolute;
+        top: 8px;
+        left: 5px;
+        line-height: 1em;
+        font-size: 25px;
+        font-weight: 900;
+        color: #585858;    
+    }
+
+    .hamb_border {
+        width: 25%;
+    }
+}
+
 
 /* ヘッダー / ヘッダーメニュー */
 
 .header_menu {
     display: flex;
+    flex-flow: column nowrap;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 20px;
     background: rgba(255, 255, 255, 0.9);
     text-align: center;
 }
 
-.header_menu li:nth-child(2n) {
+.header_menu > li {
+    width: 100%;
+    height: 100%;
+}
+
+.header_menu > li:nth-child(2n) {
     content: "";
-    width: 1px;
-    height: 40px;
+    width: 100%;
+    height: 1px;
     background: #6B9DC8;
     opacity: 0.5;
 }
 
-.header_menu a {
-    font-size: 2em;
-    font-weight: 600;
+.header_menu > li > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0.8em;
+    font-size: calc(140% + 0.8vw);
+    font-weight: 500;
     text-shadow: 0 0 3px rgba(255, 255, 255, 1);
 }
 
-.header_menu a span {
-    font-size: 0.3em;
+.header_menu span {
+    font-size: 50%;
+}
+
+
+@media (min-width: 481px) {
+
+    .header_menu {
+        flex-flow: row nowrap;
+        justify-content: space-around;
+    }
+
+    .header_menu > li {
+        width: 33%;
+    }
+
+    .header_menu > li:nth-child(2n) {
+        width: 1px;
+        height: 40px;
+    }
+}
+
+@media (min-width: 961px) {
+
+    .header_menu > li > a {
+        padding: 0.8em;
+        font-size: 220%;
+    }
 }
 
 
@@ -191,6 +249,7 @@ header {
     flex-flow: column nowrap;
     align-items: center;
     width: 100%;
+    margin-top: 50px;
 }
 
 
@@ -198,25 +257,11 @@ header {
 
 .pickups {
     width: 100%;
-    padding: 10px 50px 10px 190px;
-    margin-top: 50px;
+    padding: 5px 40px;
     background: linear-gradient(135deg, #05FBFF, #31419A);
 }
 
-.pickups::before {
-    content: "";
-    position: absolute;
-    top: 45px;
-    left: 0;
-    z-index: 100;
-    width: 140px;
-    height: 240px;
-    background: url(../img/pickups_side.png) left top/ cover no-repeat;
-    box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.3);
-}
-
-
-.pickups h2 {
+.pickups > h2 {
     top: 15px;
     left: 195px;
     z-index: 200;
@@ -224,7 +269,7 @@ header {
     margin-bottom: 10px;
     color: #fff;
     line-height: 1em;
-    font-size: 1.7em;
+    font-size: calc(120% + 0.5vw);
     text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
@@ -282,7 +327,32 @@ header {
 
 .slick-next {
     right: -25px !important;
-} 
+}
+
+@media (min-width: 481px) {
+
+    .pickups {
+        padding: 10px 50px 10px 190px;
+    }
+
+    .pickups::before {
+        content: "";
+        position: absolute;
+        top: 45px;
+        left: 0;
+        z-index: 100;
+        width: 140px;
+        height: 240px;
+        background: url(../img/pickups_side.png) left top/ cover no-repeat;
+        box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@media (min-width: 961px) {
+    .pickups > h2 {
+        font-size: 170%;
+    }
+}
 
 
 /* フッター */
@@ -302,16 +372,6 @@ footer .container {
 }
 
 
-/* コンテナー */
-
-.container {
-    display: flex;
-    width: 100%;
-    min-width: 600px;
-    max-width: 1000px;
-}
-
-
 /* 記事一覧 */
 
 .top_content1 {
@@ -326,7 +386,6 @@ footer .container {
     gap: 10px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 120px 100px 120px 100px 120px;
-    width: 100%;
     padding: 40px 10px;
 }
 
@@ -583,12 +642,12 @@ footer .container {
     padding: 30px 0;
 }
 
-.post_detail_header img {
+.post_detail_header > img {
     width: 100%;
     height: auto;
 }
 
-.post_detail_header h2 {
+.post_detail_header > h2 {
     width: 100%;
     padding-top: 10px;
     font-size: 2em;
@@ -597,7 +656,7 @@ footer .container {
     overflow: hidden;
 }
 
-.post_detail_header h2 span {
+.post_detail_header > h2 > span {
     font-size: 0.6em;
 }
 
@@ -613,12 +672,12 @@ footer .container {
     padding-bottom: 50px;
 }
 
-.post_detail_body img {
+.post_detail_body > img {
     width: 100%;
     height: auto;
 }
 
-.post_detail_body p {
+.post_detail_body > p {
     width: 100%;
     padding-bottom: 1.5em;
     font-size: 1.3em;
@@ -639,4 +698,323 @@ footer .container {
 
 .readmore:hover {
     background: #549ABF;
+}
+
+
+/* ABOUT */
+
+.about_header {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    background: url(../img/about2.jpg) center center/ cover no-repeat;
+    overflow: hidden;
+}
+
+.about_header::before {
+    content: "";
+    display: block;
+    padding-top: 34.5%;
+}
+
+.about_header > .container {
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 2vw 2vw 8vw;
+}
+
+.about_header > .container > img {
+    width: 100%;
+    height: auto;
+}
+
+.about_header > .container > h2 {
+    width: 100%;
+    padding: 2vw 0;
+    font-size: calc(130% + 1vw);
+    letter-spacing: 0.05em;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 0 3px #000;
+}
+
+.about_body {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.about_body1 {
+    background: url(../img/back1.png) #fff center center/ 5%;
+}
+
+.about_body2 {
+    background: url(../img/back1.png) #424242 center center/ 5%;
+}
+
+.about_body > .container {
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 7vw 1vw;
+}
+
+.about_body > .container > h3 {
+    padding-bottom: 1em;
+    letter-spacing: 0.05em;
+    text-align: center;
+    font-weight: 700;
+    font-size: calc(140% + 1.85vw);
+}
+
+.about_body > .container > h4 {
+    position: relative;
+    margin: 5vw auto 2vw;
+    color: #6C9ED8;
+    font-weight: 500;
+    font-size: calc(120% + 1.4vw);
+}
+
+.about_body > .container > h4::before {
+    content: "外国人のみなさ〜ん！";
+    position: absolute;
+    top: -1.5em;
+    left: -10vw;
+    color: #F17B3D;
+    font-size: 50%;
+    transform: rotate(-5deg);
+}
+
+.about_body > .container > p {
+    font-size: calc(110% + 0.5vw);
+}
+
+.about_body1_list {
+    width: 100%;
+    max-width: 720px;
+    border: 5px solid #000;
+    background: #F4F5F5;
+}
+
+.about_body1_list > li {
+    position: relative;
+    padding: 3px 3px 3px 15px;
+    border-bottom: 2px solid #fff;
+    font-size: 110%;
+}
+
+.about_body1_list > li::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #82AEC8, #A0BDCE);
+}
+
+.about_body2 > .container > h3 {
+    color: #fff;
+}
+
+.about_body2_cont {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    margin-bottom: 3em;
+    background: rgba(255, 255, 255, 0.8);
+    overflow: hidden;
+}
+
+.about_body2_cont > dt {
+    padding: 5vw 3vw 1vw 4em;
+    color: #424242;
+}
+
+.about_body2_cont > dt > h4 {
+    position: relative;
+    padding-bottom: 1em;
+    font-size: calc(120% + 0.6vw);
+    font-weight: 500;
+}
+
+.about_body2_cont > dt > h4::before {
+    content: "\f57e";
+    position: absolute;
+    top: 0.2em;
+    left: -1.2em;
+    font-size: 1.2em;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.about_body2_cont > dt > p {
+    padding-bottom: 1em;
+    font-size: calc(90% + 0.3vw);
+}
+
+.about_body2_cont > dd > img {
+    width: 100%;
+    height: auto;
+}
+
+.tsunagu_link {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 60%;
+    padding-top: 3em;
+}
+
+.tsunagu_link > img {
+    width: 80%;
+}
+
+.tsunagu_link > p {
+    width: 100%;
+    font-size: calc(90% + 0.75vw);
+    text-align: center;
+}
+
+.order_a {
+    order: 1;
+}
+
+.order_b {
+    order: 2;
+}
+
+@media (min-width: 481px) {
+    
+    .about_header > .container {
+        flex-flow: row nowrap;
+        justify-content: center;   
+        position: absolute;
+        top: 6vw;
+        padding: 2em 1em;
+    }
+
+    .about_header > .container > img {
+        width: 50%;
+        height: 100%;
+    }
+    
+    .about_header > .container > h2 {
+        width: 50%;
+        padding: 0 1em;
+        text-align: left;
+    }
+
+    .about_body1_list > li {
+        font-size: 130%;
+    }
+    
+    .about_body1_list > li::before {
+        top: 10px;
+    }
+
+    .about_body2_cont {
+        flex-flow: row nowrap;
+        justify-content: space-between;
+    }
+
+    .about_body2_cont > dt {
+        width: 50%;
+    }
+
+    .about_body2_cont > dd {
+        width: 50%;
+    }
+    
+    .about_body2_cont > dd > img {
+        width: 100%;
+        height: auto;
+    }
+
+    .order_a {
+        order: 2;
+    }
+    
+    .order_b {
+        order: 1;
+    }
+}
+
+@media (min-width: 961px) {
+
+    .about_header > .container > h2 {
+        font-size: 230%;
+    }
+
+    .about_body > .container {
+        flex-flow: column nowrap;
+        align-items: center;
+        padding: 6em 1em;
+    }
+
+    .about_body > .container > h3 {
+        position: relative;
+        font-size: 320%;
+    }
+
+    .about_body > .container > h4 {
+        font-size: 260%;
+    }
+
+    .about_body > .container > h4 {
+        margin: 2em auto 0.8em;
+        font-size: 260%;
+    }
+
+    .about_body > .container > h4::before {
+        left: -7em;
+    }
+
+    .about_body > .container > p {
+        font-size: 160%;
+    }
+
+    .about_body1 > .container > h3::before, .about_body1 > .container > h3::after {
+        content: "";
+        position: absolute;
+        top: 30%;
+        width: 4em;
+        height: 1px;
+        background: #585858;
+    }
+
+    .about_body > .container > h3::before {
+        left: -5em;
+    }
+
+    .about_body > .container > h3::before {
+        right: 1em;
+    }
+
+    .about_body1_list > li {
+        padding-left: 30px;
+        font-size: 160%;
+    }
+
+    .about_body1_list > li::before {
+        top: 13px;
+        left: 15px;
+    }
+
+    .about_body2_cont > dt {
+        padding: 5em 2em 1em 4em;
+    }
+
+    .about_body2_cont > dt > h4 {
+        font-size: 170%;
+    }
+
+    .about_body2_cont > dt > p {
+        font-size: 120%;
+    }
+
+    .tsunagu_link > p {
+        font-size: 160%;
+    }
 }

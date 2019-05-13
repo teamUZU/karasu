@@ -1,0 +1,79 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="about_header">
+	<div class="container">
+		<img src="{% static 'img/about1.jpg' %}" />
+		<h2>TSUNAGU KNOTは、<br />日本で働きたい外国人求職者向けのマルチメディアプラットフォームです。</h2>
+	</div>
+</div>
+
+<div class="about_body about_body1">
+	<div class="container"> 
+		<h3>圧倒的に洗練された情報を武器に。</h3>
+		<p>日本に在住し、日本で職を探す外国人留学者・求職者は日に日に増える一方で、日本での就職活動に必要となる情報は不足しがちです。<br />
+			本来、ただでさえ言語の違いや文化の違いがあるにも関わらず、一般的な求人情報サイトでは外国人向けに情報が公表されるのは稀有です。</p>
+		<p>私たちは、日本で働く外国人勤労者の現地の生の声や、外国人労働者を求める企業にピックし、外国人採用支援を後押ししていきます。</p>
+		<h4>こんなお悩みはありませんか？</h4>
+		<ul class="about_body1_list">
+			<li>どの求人サイトも日本人向けばかりで仕事が見つからない</li>
+			<li>日本語だけでなく翻訳された文章で情報がほしい</li>
+			<li>実際に現地で働く先輩の声を聞きたい</li>
+			<li>自分と同じような環境の仲間が欲しい</li>
+			<li>日本の企業のセミナーやイベントに参加したい</li>
+			<li>就職が決まるまでの後援サポートがほしい</li>
+		</ul>
+	</div>
+</div>
+
+<div class="about_body about_body2">
+	<div class="container"> 
+		<h3>TSUNAGU KNOTの"強み"</h3>
+		<dl class="about_body2_cont">
+			<dt class="order_b">
+				<h4>募集記事や就活記事を読みやすいよう英語に翻訳</h4>
+				<p>掲載する記事をすべて英語に翻訳し、日本語が流暢でない外国人の方でも読みやすいようにしております。</p>
+			</dt>
+			<dd class="order_a"><img src="{% static 'img/about4.jpg' %}" /></dd>
+		</dl>
+		<dl class="about_body2_cont">
+			<dd><img src="{% static 'img/about3.jpg' %}" /></dd>
+			<dt>
+				<h4>数少ない外国人求職者向け記事のみピック</h4>
+				<p>当サイトでは外国人求職者や留学生向けのサービスに注視。</p>
+				<p>日本人向けの余計な情報はバッサリと切り捨てています。</p>
+			</dt>
+		</dl>
+		<dl class="about_body2_cont">
+			<dt class="order_b">
+				<h4>就活セミナーやイベントをご紹介</h4>
+				<p>当サイトを運営する"TSUNAGU"では、実際に日本で就職するためのセミナーやイベントを、定期的に開催しております。</p>
+				<p>TSUNAGUの就職支援スペシャリストが、あなたの背中を後押し。</p>
+				<p>無事に日本で就職できるまで全力でサポートいたします。</p>
+			</dt>
+			<dd class="order_a"><img src="{% static 'img/about5.jpg' %}" /></dd>
+		</dl>
+		<dl class="about_body2_cont">
+			<dd><img src="{% static 'img/about6.jpg' %}" /></dd>
+			<dt>
+				<h4>日本で働く外国人のインタビュー記事を掲載</h4>
+				<p>実際に日本で働いている現地の先輩のインタビュー記事を掲載しております。</p>
+				<p>先述の運営元サービス、TSUNAGUから羽ばたいて行った外国人の方も多数登場します。</p>
+		</dl>
+	</div>
+</div>
+
+<div class="about_body about_body3">
+	<div class="container"> 
+		<h3>運営元について</h3>
+		<p>当サイト"TSUNAGU KNOT"は、<a href="http://lings.co.jp/" target="_blank">株式会社LINGs</a>の運営する"TSUNAGU"直下のサービスとなっております。</p>
+		<a class="tsunagu_link" href="http://tsunagu-career.com/" target="_blank">
+			<img src="{% static 'img/logo2.png' %}" />
+			<p>についてはこちらをクリック</p>
+		</a>
+	</div>
+</div>
+	
+{% endblock content %}
