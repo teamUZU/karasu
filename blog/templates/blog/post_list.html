@@ -5,6 +5,13 @@
 
 {% include 'blog/pickups.html' %}
 
+<!-- ウェルカムメッセージ -->
+{% if user.id  %}
+<p>ようこそ、{{ user.username }}さん</p>
+{% else %}
+<p>ようこそ、ゲストさん</p>
+{% endif %}
+
 <!-- トップコンテンツ1 -->
 <div class="top_content1">
     <ul class="posts container">
