@@ -30,14 +30,29 @@
 
     <!-- ヘッダー -->
     <header>
+
         <div class="header_container">
+
             <a class="header_logo" href="{% url 'post_list' %}"><img src="{% static 'img/logo1_white.svg' %}" /></a>
-            <ul class="hamb">
-                <li class="hamb_border"></li>
-                <li class="hamb_border"></li>
-                <li class="hamb_border"></li>
-            </ul>
+           
+            <div>
+                <!-- ウェルカムメッセージ -->
+                <div class="header_welcome">
+                {% if user.id  %}
+                <p>ようこそ、{{ user.username }}さん</p>
+                {% else %}
+                <p>ようこそ、ゲストさん</p>
+                {% endif %}
+                </div>
+                <ul class="hamb">
+                    <li class="hamb_border"></li>
+                    <li class="hamb_border"></li>
+                    <li class="hamb_border"></li>
+                </ul>
+            </div>
+
         </div>
+
         <ul class="header_menu">
             <li><a href="">SEARCH<br /><span>お仕事を検索する</span></a></li>
             <li></li>
@@ -45,6 +60,7 @@
             <li></li>
             <li><a href="{% url 'tip_list' %}">TIPS<br /><span>お役立ち情報</span></a></li>
         </ul>
+
     </header>
     <!-- END ヘッダー -->
 
@@ -86,16 +102,16 @@ $(function(){
         // スクロール位置が280を超えた場合
         if ($(this).scrollTop() > 200) { //トップからのスクロール位置を基準に
             $('.header_container').css('background', 'rgba(255, 255, 255, 0.9)');
-            $('.header_logo').css('color', '#000');
-            $('.hamb').css('background', 'none');
             $('.header_logo > img').attr("src","{% static 'img/logo1_black.svg' %}");
+            $('.header_welcome > p').css('color', '#000');
+            $('.hamb').css('background', 'none');
         }
         // スクロール位置が280以下の場合
         else {
             $('.header_container').css('background', 'rgba(0, 0, 0, 1)');
-            $('.header_logo').css('color', '#fff');
-            $('.hamb').css('background', '#fff');
             $('.header_logo > img').attr("src","{% static 'img/logo1_white.svg' %}");
+            $('.header_welcome > p').css('color', '#fff');
+            $('.hamb').css('background', '#fff');
         }
     });
 

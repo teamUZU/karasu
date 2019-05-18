@@ -101,18 +101,51 @@ header {
 
 .header_container {
     display: flex;
-    justify-content: center;
+    flex-flow: row nowrap;
+    justify-content: space-between;
     align-items: center;
     position: relative;
     width: 100%;
-    padding: 5px;
+    padding: 0.5em;
     background: rgba(0, 0, 0, 1);
     transition: all 0.3s;
 }
 
+.header_container > div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+}
+
+.header_logo {
+    width: 32%;
+}
+
 .header_logo > img {
-    width: auto;
-    height: 40px;
+    width: 100%;
+    height: auto;
+}
+
+.header_welcome {
+    padding-right: 1em;
+}
+
+.header_welcome > p {
+    position: relative;
+    padding: 0;
+    line-height: 1.3em;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.header_welcome > p::before {
+    position: absolute;
+    content: "\f007";
+    left: -1.2em;
+    font-size: 2em;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
 }
 
 .hamb {
@@ -120,8 +153,7 @@ header {
     flex-flow: column nowrap;
     align-items: center;
     justify-content: space-around;
-    position: absolute;
-    right: 1em;
+    position: relative;
     width: 40px;
     height: 40px;
     padding: 5px;
@@ -153,6 +185,14 @@ header {
 }
 
 @media (min-width: 481px) {
+
+    .header_container > div {
+        width: auto;
+    }
+
+    .header_logo {
+        width: 150px;
+    }
 
     .hamb {
         align-items: flex-end;    
@@ -269,7 +309,7 @@ header {
     margin-bottom: 10px;
     color: #fff;
     line-height: 1em;
-    font-size: calc(120% + 0.5vw);
+    font-size: calc(140% + 0.5vw);
     text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
@@ -312,8 +352,9 @@ header {
 }
 
 .pickups img {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
 }
 
 .slick-prev:before, .slick-next:before {
@@ -361,14 +402,16 @@ footer {
     display: flex;
     justify-content: center;
     width: 100%;
-    background: #2e2e2e;
+    color: #fff;
+    background: #1B3F5A;
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
 }
 
-footer .container {
+footer > .container {
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    padding: 60px 10px;
+    padding: 5vw 2vw;
 }
 
 
@@ -382,11 +425,10 @@ footer .container {
 }
 
 .posts {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 120px 100px 120px 100px 120px;
-    padding: 40px 10px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 2vw;
 }
 
 .post {
@@ -394,6 +436,9 @@ footer .container {
     border-radius: 5px;
     box-shadow: 0 0 4px 3px rgba(100, 100, 100, 0.1);
     overflow: hidden;
+    width: 100%;
+    height: 50vw;
+    margin-bottom: 2vw;
 }
 
 .post:nth-child(1) {
@@ -425,29 +470,65 @@ footer .container {
 }
 
 .post_meta {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-end;
     position: absolute;
     bottom: 0;
     z-index: 100;
     width: 100%;
-    height: 60px;
-    padding: 5px;
-    background: rgba(0, 0, 0, 0.5);
-    transition: all 0.5s;
+    height: 50%;
+    padding: 0.5em;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
 }
 
-.post:hover .post_meta {
-    background: rgba(242, 50, 42, 0.5);
-}
-
-.post_meta h2 {
+.post_meta {
     font-size: 1.5em;
     font-weight: 500;
     text-align: center;
     text-shadow: 0 0 3px #000, 0 0 2px #000;
 }
 
-.post_meta h2 span {
+.post_meta > h3 {
     font-size: 0.6em;
+}
+
+@media (min-width: 481px) {
+
+    .top_content1 {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+    }
+    
+    .posts {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 120px 100px 120px 100px 120px;
+        padding: 40px 10px;
+    }
+    
+    .post {
+        height: 100%;
+    }
+    
+    .post:nth-child(1) {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
+    }
+    
+    .post:nth-child(4) {
+        grid-column: 3 / span 2;
+        grid-row: 2 / span 2;
+    }
+    
+    .post:nth-child(8) {
+        grid-column: 2 / span 2;
+        grid-row: 4 / span 2;
+    }
 }
 
 
@@ -459,64 +540,40 @@ footer .container {
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 280px;
     padding-bottom: 30px;
 }
 
 .pagination a {
     position: absolute;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    font-size: 2.3em;
-    color: #fff;
-    background: #585858;
-}
-
-.pagination i {
-    position: absolute;
-    top: 4px;
+    font-size: 3em;
+    color: #000;
 }
 
 .pagination_first {
-    left: 0;
-}
-
-.pagination_first i {
-    left: 4px;
+    left: -3em;
 }
 
 .pagination_prev {
-    left: 50px;
-}
-
-.pagination_prev i {
-    left: 9px;
+    left: -1.5em;
 }
 
 .pagination_next {
-    right: 50px;
-}
-
-.pagination_next i {
-    right: 9px;
+    right: -1.5em;
 }
 
 .pagination_last {
-    right: 0;
-}
-
-.pagination_last i {
-    right: 4px;
+    right: -3em;
 }
 
 .current {
-    margin: 0 10px;
+    padding: 0.5em;
+    border-radius: 3px;
     line-height: 1em;
     letter-spacing: 0.2em;
     font-size: 1.8em;
     font-weight: 700;
-    color: #585858;
+    color: #fff;
+    background: #000;
 }
 
 
@@ -528,8 +585,7 @@ footer .container {
     position: relative;
     width: 100%;
     color: #fff;
-    background: url(../img/top_content1_back.jpg) center center/ cover no-repeat;
-    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
+    background: url(../img/top_content1_back.jpg) center center/ cover fixed no-repeat;
 }
 
 .top_content2::before {
@@ -541,45 +597,40 @@ footer .container {
     opacity: 0.9;
 }
 
-.top_content2 ul {
-    z-index: 100;
-    padding: 0 0 30px 20px;
+.top_content2 > .container {
+    flex-flow: column-reverse nowrap;
+    align-items: center;
+    padding: 5vw 2vw 0;
 }
 
-.top_content2 img {
+.top_content2 > .container > img {
     z-index: 100;
-    width: 45%;
+    width: 100%;
     height: auto;
 }
 
-.top_content2 h2 {
-    letter-spacing: 2px;
-    font-size: 2.5em;
-    font-weight: 700;
-    text-shadow: 0 0 3px #000, 0 0 2px #000, 0 0 2px #000;
+.top_content2_list {
+    z-index: 100;
+    padding-bottom: 5vw;
 }
 
-.top_content2 h3 {
-    font-size: 2em;
-    font-weight: 500;
-    text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-}
-
-.top_content2 li {
+.top_content2_list > li {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
     position: relative;
-    padding-top: 20px;
+    padding-top: 1.5em;
 }
 
-.top_content2 li:not(:nth-child(1)) {
+.top_content2_list > li:not(:nth-child(1)) {
     padding-left: 60px;
 }
 
-.top_content2 li::before {
+.top_content2_list > li::before {
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 40%;
     left: 0;
     width: 50px;
     height: 50px;
@@ -591,23 +642,73 @@ footer .container {
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1);
 }
 
-.top_content2 li:nth-child(2)::before {
+.top_content2_list > li:nth-child(2)::before {
     content: "\f09e";
 }
 
-.top_content2 li:nth-child(3)::before {
-    content: "\f0c0";
+.top_content2_list > li:nth-child(3)::before {
+    content: "\f558";
 }
 
-.top_content2 li:nth-child(4)::before {
+.top_content2_list > li:nth-child(4)::before {
     content: "\f2b5";
 }
 
-.top_content2 .container {
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: flex-end;
-    padding: 80px 10px 0;
+.top_content2_list > li > h2 {
+    width: 100%;
+    padding-bottom: 0.5em;
+    letter-spacing: 0.1em;
+    font-size: calc(130% + 1.5vw);
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 0 0 3px #000, 0 0 2px #000, 0 0 2px #000;
+}
+
+.top_content2_list > li > h3 {
+    width: 100%;
+    padding-bottom: 0.3em;
+    font-size: calc(120% + 1vw);;
+    font-weight: 500;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.top_content2_list > li > p {
+    width: 100%;
+    font-size: calc(90% + 0.4vw);
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 961px) {
+
+    .top_content2 > .container {
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 7em 2em 0;
+    }
+
+    .top_content2 > .container > img {
+        width: 40%;
+    }
+
+    .top_content2_list {
+        width: 60%;
+        padding: 0 0 0 3em;
+    }
+
+    .top_content2_list > li > h2 {
+        font-size: 300%;
+        text-align: center;
+    }
+    
+    .top_content2_list > li > h3 {
+        font-size: 200%;
+    }
+    
+    .top_content2_list > li > p {
+        width: 100%;
+        font-size: 120%;
+    }
 }
 
 
@@ -615,13 +716,14 @@ footer .container {
 
 .post_detail {
     width: 100%;
-    padding: 30px;
+    padding: 5vw 1vw;
     background: #f8f8f8;
 }
 
-.post_detail .container {
+.post_detail > .container {
     flex-flow: row nowrap;
     justify-content: center;
+    /* marginは今だけ設定 */
     margin: 0 auto;
     background: #fff;
 }
@@ -629,75 +731,82 @@ footer .container {
 .post_detail1 {
     display: flex;
     flex-flow: column nowrap;
-    width: 80%;
-    max-width: 600px;
+    align-items: center;
+    width: 100%;
+    padding: 3vw;
     overflow: hidden;
 }
 
-.post_detail_header {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+.post_detail1 > h2 {
     width: 100%;
-    padding: 30px 0;
-}
-
-.post_detail_header > img {
-    width: 100%;
-    height: auto;
-}
-
-.post_detail_header > h2 {
-    width: 100%;
-    padding-top: 10px;
-    font-size: 2em;
+    padding-top: 0.5em;
+    font-size: calc(140% + 1vw);
     font-weight: 500;
     color: #585858;
     overflow: hidden;
 }
 
-.post_detail_header > h2 > span {
-    font-size: 0.6em;
-}
-
-.post_detail_date {
-    width: 100%;
-    color: #a4a4a4;
-}
-
-.post_detail_body {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    padding-bottom: 50px;
-}
-
-.post_detail_body > img {
+.post_detail_mainimg {
     width: 100%;
     height: auto;
 }
 
-.post_detail_body > p {
+.post_detail_date {
+    width: 100%;
+    padding-bottom: 1em;
+    font-size: calc(90% + 0.2vw);
+    color: #a4a4a4;
+}
+
+.post_detail1 > p {
     width: 100%;
     padding-bottom: 1.5em;
-    font-size: 1.3em;
+    font-size: calc(110% + 0.5vw);
 }
 
 .readmore {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 90%;
+    max-width: 400px;
     height: 50px;
     border-radius: 30px;
-    font-size: 1.5em;
-    font-weight: 500;
+    font-size: calc(120% + 0.5vw);
+    font-weight: 700;
     color: #fff;
     background: linear-gradient(90deg, #9AD3F2, #74A5C0);
 }
 
 .readmore:hover {
     background: #549ABF;
+}
+
+@media (min-width: 961px) {
+
+    .post_detail {
+        padding: 5em 1em;
+    }
+
+    .post_detail1 {
+        padding: 5em;
+    }
+    
+    .post_detail1 > h2 {
+        font-size: 240%;
+    }
+    
+    .post_detail_date {
+        font-size: 115%;
+    }
+    
+    .post_detail1 > p {
+        font-size: 160%;
+    }
+    
+    .readmore {
+        font-size: 160%;
+    }    
 }
 
 
@@ -779,7 +888,7 @@ footer .container {
     content: "外国人のみなさ〜ん！";
     position: absolute;
     top: -1.5em;
-    left: -10vw;
+    left: -5vw;
     color: #F17B3D;
     font-size: 50%;
     transform: rotate(-5deg);
@@ -806,8 +915,8 @@ footer .container {
 .about_body1_list > li::before {
     content: "";
     position: absolute;
-    top: 10px;
-    left: 5px;
+    top: 1em;
+    left: 0.5em;
     width: 5px;
     height: 5px;
     border-radius: 50%;
@@ -828,7 +937,7 @@ footer .container {
 }
 
 .about_body2_cont > dt {
-    padding: 5vw 3vw 1vw;
+    padding: 5vw 2.3vw 1vw;
     color: #424242;
 }
 
@@ -886,7 +995,7 @@ footer .container {
         flex-flow: row nowrap;
         justify-content: center;   
         position: absolute;
-        top: 6vw;
+        top: 7vw;
         padding: 2em 1em;
     }
 
@@ -903,10 +1012,6 @@ footer .container {
 
     .about_body1_list > li {
         font-size: 130%;
-    }
-    
-    .about_body1_list > li::before {
-        top: 10px;
     }
 
     .about_body2_cont {
@@ -993,12 +1098,11 @@ footer .container {
     }
 
     .about_body1_list > li::before {
-        top: 13px;
-        left: 15px;
+        left: 1em;
     }
 
     .about_body2_cont > dt {
-        padding: 5em 2em 1em 4em;
+        padding: 5em 2em 1em;
     }
 
     .about_body2_cont > dt > h4 {
