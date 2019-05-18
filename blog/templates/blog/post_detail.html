@@ -25,8 +25,13 @@
 
 			<!-- ボディ -->
 			<div class="post_detail_body">
+				{% if user.id %}
 				{{ post.text|linebreaks }}
-				<a class="readmore" href="">もっと見る</a>
+				{% else %}
+				{{ post.text|truncatechars:500 }}
+				<p>続きは会員登録が必要です</p>
+				<a class="readmore" href="{% url 'signup' %}">無料会員登録はこちら</a>
+				{% endif %}
 			</div>
 			<!-- END ボディ -->
 

@@ -5,7 +5,7 @@ from .forms import PostForm, UserCreateForm
 from django.shortcuts import redirect
 from django.core.paginator import Paginator
 # 以下のインポート文は新規会員登録で追加
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 # from django.contrib.auth.forms import UserCreationForm
 # from django.http import HttpResponseRedirect
 # from django.urls import reverse_lazy
@@ -72,6 +72,10 @@ def signup(request):
 	else:
 		form = UserCreateForm()
 	return render(request, 'blog/signup.html', {'form': form})
+
+def logout_view(request):
+	logout(request)
+	return render(request, 'blog/logout_view.html')
 
 def about(request):
 	return render(request, 'blog/about.html')

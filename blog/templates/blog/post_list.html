@@ -8,6 +8,7 @@
 <!-- ウェルカムメッセージ -->
 {% if user.id  %}
 <p>ようこそ、{{ user.username }}さん</p>
+<a href="{% url 'logout_view' %}">logout</a>
 {% else %}
 <p>ようこそ、ゲストさん</p>
 {% endif %}
