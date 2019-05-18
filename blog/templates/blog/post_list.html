@@ -5,14 +5,6 @@
 
 {% include 'blog/pickups.html' %}
 
-<!-- ウェルカムメッセージ -->
-{% if user.id  %}
-<p>ようこそ、{{ user.username }}さん</p>
-<a href="{% url 'logout_view' %}">logout</a>
-{% else %}
-<p>ようこそ、ゲストさん</p>
-{% endif %}
-
 <!-- トップコンテンツ1 -->
 <div class="top_content1">
     <ul class="posts container">
@@ -23,7 +15,7 @@
                 <img src="{{ post.image.thumbnail.url }}" />
                 {% endif %}
                 <div class="post_meta">
-                    <h2>{{ post.title }}<br /><span>{{ post.subtitle }}</span></h2>
+                    <h2>{{ post.title }}</h2><h3>{{ post.subtitle }}</h3>
                 </div>
             </a>
         </li>
@@ -52,19 +44,19 @@
 <div class="top_content2">
     <div class="container">
         <img src="{% static 'img/top_content1_main.png' %}" />
-        <ul>
+        <ul class="top_content2_list">
             <li><h2>TSUNAGU KNOTの提供する価値</h2></li>
             <li>
-                <h3>リアルな就活情報の発信</h3>
-                <p>就活が終わった内定者ライターの実体験と、実際の企業の人事の方の意見も織り交ぜて記事を書くため、よりリアルな情報を発信することができます。</p>
+                <h3>外国人求職者向けの最新メディア</h3>
+                <p>日本で働きたい外国人の方々に的を絞り、外国人が働ける求人記事・日本現地で働く外国人インタビュー・就職支援イベントの開催告知等、様々な情報を発信します。</p>
             </li>
             <li>
-                <h3>仲間ができる</h3>
-                <p>TSUNAGUの開催するイベントに参加することによって、留学生同士はもちろん、日本人学生とも仲良くなることができ、一緒に目標に向かって頑張る仲間を作ることができます。</p>
+                <h3>日本語と英語の記事を読める</h3>
+                <p>当サイトで掲載する記事をすべて英語にも翻訳。日本語が流暢でない方でもお読みいただけます。</p>
             </li>
             <li>
                 <h3>日本の企業と繋がれる</h3>
-                <p>TSUNAGUの開催する就活イベントでは様々な企業の方と話す機会があり、イベントを通して日本の様々な企業と繋がることができます。</p>
+                <p>当サイトを運営する"TSUNAGU"の開催する就活イベントでは、様々な企業の方と話す機会があり、イベントを通して日本の様々な企業と繋がることができます。同時に、共に目標に向かい成長しあえる仲間が見つかります。</p>
             </li>
         </ul>
     </div>
