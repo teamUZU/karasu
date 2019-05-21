@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import Post, Tip
-from .forms import PostForm, UserCreateForm
+from .forms import PostForm# , UserCreateForm
 from django.shortcuts import redirect
 from django.core.paginator import Paginator
 # 以下のインポート文は新規会員登録で追加
-from django.contrib.auth import login, logout
+# from django.contrib.auth import login, logout
 # from django.contrib.auth.forms import UserCreationForm
 # from django.http import HttpResponseRedirect
 # from django.urls import reverse_lazy
@@ -62,6 +62,7 @@ class CreateAccount(CreateView):
 		self.object = user
 		return HttpResponseRedirect(self.get_success_url()) # リダイレクト
 """
+"""
 def signup(request):
 	if request.method == 'POST':
 		form = UserCreateForm(request.POST)
@@ -76,6 +77,7 @@ def signup(request):
 def logout_view(request):
 	logout(request)
 	return render(request, 'blog/logout_view.html')
+"""
 
 def about(request):
 	return render(request, 'blog/about.html')

@@ -9,23 +9,41 @@
 <div class="post_detail">
 	<!-- コンテナー -->
 	<div class="container">
-
 		<div class="post_detail1">
-			{% if post.image %}
-			<img class="post_detail_mainimg" src="{{ post.image.large.url }}"/>
-			{% endif %}
-			<h2>{{ post.title }}</h2>
-			{% if post.published_date %}
-			<div class="post_detail_date">{{ post.published_date }}</div>
-			{% endif %}
-			{{ post.text|linebreaks }}
-			<a class="readmore" href="">もっと見る</a>
+			
+			<!-- ヘッダー -->
+			<div class="post_detail_header">
+				{% if post.image %}
+				<img src="{{ post.image.large.url }}"/>
+				{% endif %}
+				<h2>{{ post.title }}</h2>
+				{% if post.published_date %}
+				<div class="post_detail_date">{{ post.published_date }}</div>
+				{% endif %}
+			</div>
+			<!-- END ヘッダー -->
+
+			<!-- ボディ -->
+			<div class="post_detail_body">
+				{% if user.id %}
+				{{ post.text|linebreaks }}
+				{% else %}
+				{{ post.text|truncatechars:500 }}
+				<p>続きは会員登録が必要です</p>
+				<a class="readmore" href="{% url 'accounts:signup' %}">無料会員登録はこちら</a>
+				{% endif %}
+			</div>
+			<!-- END ボディ -->
+
 		</div>
 
-		<div class="post_detail2"></div>
+		<div class="post_detail2">
+
+		</div>
 
 	</div>
 	<!-- END コンテナー -->
+
 </div>
 <!-- END 記事詳細 -->
 

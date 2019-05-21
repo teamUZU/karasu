@@ -4,7 +4,7 @@
     <ul>
         {% for pick in picks %}
         <li>
-            <a href="{% url 'post_detail' pk=pick.pk %}">
+            <a href="{% url 'blog:post_detail' pk=pick.pk %}">
                 {% if pick.image %}
                 <img src="{{ pick.image.thumbnail.url }}" />
                 {% endif %}

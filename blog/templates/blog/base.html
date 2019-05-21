@@ -33,15 +33,18 @@
 
         <div class="header_container">
 
-            <a class="header_logo" href="{% url 'post_list' %}"><img src="{% static 'img/logo1_white.svg' %}" /></a>
+            <a class="header_logo" href="{% url 'blog:post_list' %}"><img src="{% static 'img/logo1_white.svg' %}" /></a>
            
             <div>
                 <!-- ウェルカムメッセージ -->
                 <div class="header_welcome">
                 {% if user.id  %}
                 <p>ようこそ、{{ user.username }}さん</p>
+                <li><a href="{% url 'logout' %}" class="logout">Logout</a></li>
                 {% else %}
                 <p>ようこそ、ゲストさん</p>
+                <li><a href="{% url 'accounts:signup' %}" class="signup">Sign up</a></li>
+                <li><a href="{% url 'login' %}" class="login">Login</a></li>
                 {% endif %}
                 </div>
                 <ul class="hamb">
@@ -56,9 +59,9 @@
         <ul class="header_menu">
             <li><a href="">SEARCH<br /><span>お仕事を検索する</span></a></li>
             <li></li>
-            <li><a href="{% url 'about' %}">ABOUT<br /><span>TSUNAGU KNOTとは？</span></a></li>
+            <li><a href="{% url 'blog:about' %}">ABOUT<br /><span>TSUNAGU KNOTとは？</span></a></li>
             <li></li>
-            <li><a href="{% url 'tip_list' %}">TIPS<br /><span>お役立ち情報</span></a></li>
+            <li><a href="{% url 'blog:tip_list' %}">TIPS<br /><span>お役立ち情報</span></a></li>
         </ul>
 
     </header>

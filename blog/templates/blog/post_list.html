@@ -10,7 +10,7 @@
     <ul class="posts container">
         {% for post in posts %}
         <li class="post">
-            <a href="{% url 'post_detail' pk=post.pk %}">
+            <a href="{% url 'blog:post_detail' pk=post.pk %}">
                 {% if post.image %}
                 <img src="{{ post.image.thumbnail.url }}" />
                 {% endif %}
@@ -27,15 +27,15 @@
 <!-- ページネーション -->
 <div class="pagination">
     {% if posts.has_previous %}
-    <a class="pagination_first" href="{% url 'post_list' %}"><i class="fas fa-angle-double-left"></i></a>
-    <a class="pagination_prev" href="{% url 'post_list' %}{{ posts.previous_page_number }}"><i class="fas fa-angle-left"></i></a>
+    <a class="pagination_first" href="{% url 'blog:post_list' %}"><i class="fas fa-angle-double-left"></i></a>
+    <a class="pagination_prev" href="{% url 'blog:post_list' %}{{ posts.previous_page_number }}"><i class="fas fa-angle-left"></i></a>
     {% endif %}
     <div class="current">
     {{ posts.number }}/{{ posts.paginator.num_pages }}
     </div>
     {% if posts.has_next %}
-    <a class="pagination_next" href="{% url 'post_list' %}{{ posts.next_page_number }}"><i class="fas fa-angle-right"></i></a>
-    <a class="pagination_last" href="{% url 'post_list' %}{{ posts.paginator.num_pages }}"><i class="fas fa-angle-double-right"></i></a>
+    <a class="pagination_next" href="{% url 'blog:post_list' %}{{ posts.next_page_number }}"><i class="fas fa-angle-right"></i></a>
+    <a class="pagination_last" href="{% url 'blog:post_list' %}{{ posts.paginator.num_pages }}"><i class="fas fa-angle-double-right"></i></a>
     {% endif %}
 </div>
 <!-- END ページネーション -->
