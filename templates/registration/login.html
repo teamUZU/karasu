@@ -24,12 +24,12 @@
             </div>
     </div>
     <div>
-        <label for="password1">パスワード</label>
+        <label for="password">パスワード</label>
             <div>
                 {% csrf_token %}
                 {{ form.password }}
             </div>
-        </div>
+    </div>
 
 <button type="submit" class="submit">Login</button>
 <input type="hidden" name="next" value="{{ next }}" />

@@ -11,10 +11,9 @@ urlpatterns = [
 	path('post/<int:pk>/', views.post_detail, name='post_detail'),
 	path('post/new/', views.post_new, name='post_new'),
 	path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
-	# path('signup/', views.signup, name='signup'),
-	# path('logout_view/', views.logout_view, name='logout_view'),
 	path('about/', views.about, name='about'),
 	path('tip_list/', views.tip_list, name='tip_list'),
+	path('tip_list/<int:pk>/', views.tip_detail, name='tip_detail'),
 ]
 if settings.DEBUG:
 	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

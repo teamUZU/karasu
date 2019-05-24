@@ -27,17 +27,6 @@ class Post(models.Model):
 	def __str__(self):
 		return self.title
 
-"""
-class User(models.Model):
-	username = models.CharField()
-	email = models.EmailField()
-	password1 = models.CharField(widget=forms.PasswordInput)
-	password2 = models.CharField(widget=forms.PasswordInput)
-
-	def __str__(self):
-		return self.title
-"""
-
 class Tip(models.Model):
 	event_title = models.CharField(max_length=200)
 	event_date = models.DateTimeField(blank=True, null=True)

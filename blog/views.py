@@ -1,15 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import Post, Tip
-from .forms import PostForm# , UserCreateForm
+from .forms import PostForm
 from django.shortcuts import redirect
 from django.core.paginator import Paginator
-# 以下のインポート文は新規会員登録で追加
-# from django.contrib.auth import login, logout
-# from django.contrib.auth.forms import UserCreationForm
-# from django.http import HttpResponseRedirect
-# from django.urls import reverse_lazy
-# from django.views.generic.edit import CreateView
 
 def post_list(request, num=1):
 	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date').reverse()
@@ -49,39 +43,13 @@ def post_edit(request, pk):
 		form = PostForm(instance=post)
 	return render(request, 'blog/post_edit.html', {'form': form})
 
-# アカウント作成
-"""
-class CreateAccount(CreateView):
-	form_class = UserCreationForm
-	template_name = 'blog/signup.html' 
-	success_url = reverse_lazy('post_list')
-
-	def form_valid(self, form):
-		user = form.save() # formの情報を保存
-		login(self.request, user) # 認証
-		self.object = user
-		return HttpResponseRedirect(self.get_success_url()) # リダイレクト
-"""
-"""
-def signup(request):
-	if request.method == 'POST':
-		form = UserCreateForm(request.POST)
-		if form.is_valid():
-			user = form.save()
-			login(request, user)
-			return redirect(to='../')
-	else:
-		form = UserCreateForm()
-	return render(request, 'blog/signup.html', {'form': form})
-
-def logout_view(request):
-	logout(request)
-	return render(request, 'blog/logout_view.html')
-"""
-
 def about(request):
 	return render(request, 'blog/about.html')
 
 def tip_list(request):
 	tips = Tip.objects.filter(published_date__lte=timezone.now()).order_by('published_date').reverse()
 	return render(request, 'blog/tip_list.html', {'tips': tips})
+
+def tip_detail(request, pk):
+	tip = get_object_or_404(Tip, pk=pk)
+	return render(request, 'blog/tip_detail.html', {'tip': tip})
