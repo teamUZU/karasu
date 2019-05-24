@@ -29,8 +29,8 @@
 				{{ post.text|linebreaks }}
 				{% else %}
 				{{ post.text|truncatechars:500 }}
-				<p>続きは会員登録が必要です</p>
-				<a class="readmore" href="{% url 'accounts:signup' %}">無料会員登録はこちら</a>
+				<p>続きを読むにはログインが必要です</p>
+				<a class="readmore" href="{% url 'login' %}">ログインはこちら</a>
 				{% endif %}
 			</div>
 			<!-- END ボディ -->

@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>TSUNAGU-KNOT-SIGNUP</title>
+    <title>TSUNAGU-KNOT</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-<div class="container">
+<div>
     <header>
         <p><a href="{% url 'blog:post_list' %}">TSUNAGU-KNOT</a></p>
         <nav>
@@ -20,7 +20,7 @@
             </ul>
         </nav>
     </header>
-    <div class="content">
+    <div>
         {% block content %}
         {% endblock %}
     </div>

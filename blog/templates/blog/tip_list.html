@@ -13,7 +13,7 @@
             <img src="{{ tip.image.thumbnail.url }}" />
             {% endif %}
             <h4>{{ tip.status }}</h4>
-            <a href=""><h3>{{ tip.event_title }}</h3></a>
+            <a href="{% url 'blog:tip_detail' pk=tip.pk %}"><h3>{{ tip.event_title }}</h3></a>
             <h4>{{ tip.event_date }}</h4>
         </li>
         {% endfor %}
