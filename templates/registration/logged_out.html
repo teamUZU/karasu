@@ -1,9 +1,20 @@
 {% extends 'base.html' %}
 
-{% block title %}Logout{% endblock %}
+{% block title %}
+ログアウトしました | 
+{% endblock title %}
 
 {% block content %}
-<h1>Logged Out</h1>
-<p>またきてくださいね。<br />Thanks for spending some quality time with the Web site today.</p>
-<p><a href="{% url 'login' %}">Login again</a></p>
+
+<!-- ログアウト画面 -->
+<div class="login loggedout">
+    <div class="container">
+        <h2>ログアウトしました</h2>
+        <h3>また来てくださいね。<!-- Thanks for spending some quality time with the Web site today. --></h3>
+        <a class="button_skyblue" href="{% url 'login' %}">再ログイン</a>         
+        <a class="to_top" href="{% url 'blog:post_list' %}">トップページに戻る</a>
+    </div>
+</div>
+<!-- END ログアウト画面 -->
+
 {% endblock %}

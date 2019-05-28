@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+イベント一覧 |  
+{% endblock title %}
+
+{% block content %}
+
+<!-- ティップス一覧 -->
+<div class="tips_content">
+    <h2>イベント一覧</h2>
+    <ul class="container">
+        {% for tip in tips %}
+        <li>
+            <a class="tips_post" href="{% url 'blog:tip_detail' pk=tip.pk %}">
+                {% if tip.image %}
+                <img src="{{ tip.image.thumbnail.url }}" />
+                {% endif %}
+                <h3>
+                    <span>{{ tip.status }}</span>{{ tip.event_title }}
+                    <p>{{ tip.event_date }}</p>
+                </h3>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<!-- END ティップス一覧 -->
+
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TSUNAGU-KNOT</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div>
+    <header>
+        <p><a href="{% url 'blog:post_list' %}">TSUNAGU-KNOT</a></p>
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}" class="logout">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'accounts:signup' %}" class="signup">Sign up</a></li>
+                <li><a href="{% url 'login' %}" class="login">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+</body>
+</html>

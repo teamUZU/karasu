@@ -1,37 +1,38 @@
 {% extends 'base.html' %}
 
+{% block title %}
+ログイン | 
+{% endblock title %}
+
 {% block content %}
 
-{% if form.errors %}
-<p>ユーザー名、パスワードが一致しません。もう一度入力してください。<br />Your username and password didn't match. Please try again.</p>
-{% endif %}
+<!-- ログイン画面 -->
+<div class="login">
+    <div class="container">
 
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>このアカウントではアクセスできません。<br />Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>ログインしてください。<br />Please login to see this page.</p>
-    {% endif %}
-{% endif %}
+        <h2>TSUNAGU KNOTにログイン</h2>
 
-<form method="post" action="{% url 'login' %}">
-    <div>
-        <label for="name">ユーザ名</label>
-            <div>
-                {% csrf_token %}
-                {{ form.username }}
-            </div>
+        {% if form.errors %}
+        <p class="signup_error">ユーザー名、パスワードが一致しません。もう一度入力してください。<!-- Your username and password didn't match. Please try again. --></p>
+        {% endif %}
+
+        {% if next %}
+            {% if user.is_authenticated %}
+            <p class="signup_error">このアカウントではアクセスできません。<!-- Your account doesn't have access to this page. To proceed, please login with an account that has access. --></p>
+            {% else %}
+            <p class="signup_error">ログインしてください。<!-- Please login to see this page. --></p>
+            {% endif %}
+        {% endif %}
+
+        <form class="signup_form" method="post" action="{% url 'login' %}">
+            <label><div>ユーザ名</div>{% csrf_token %}{{ form.username }}</label>
+            <label><div>パスワード</div>{% csrf_token %}{{ form.password }}</label>
+            <button class="button_skyblue" type="submit">ログイン</button>
+            <input type="hidden" name="next" value="{{ next }}" />
+        </form>
+
     </div>
-    <div>
-        <label for="password">パスワード</label>
-            <div>
-                {% csrf_token %}
-                {{ form.password }}
-            </div>
-    </div>
+</div>
+<!-- END ログイン画面 -->
 
-<button type="submit" class="submit">Login</button>
-<input type="hidden" name="next" value="{{ next }}" />
-</form>
 {% endblock %}
