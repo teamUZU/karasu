@@ -1,11 +1,11 @@
-{% extends 'blog/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
 
 {% include 'blog/pickups.html' %}
 
-<!-- トップコンテンツ1 -->
+<!-- 記事一覧 -->
 <div class="top_content1">
     <ul class="posts container">
         {% for post in posts %}
@@ -22,7 +22,7 @@
         {% endfor %}
     </ul>
 </div>
-<!-- END トップコンテンツ1 -->
+<!-- END 記事一覧 -->
 
 <!-- ページネーション -->
 <div class="pagination">
@@ -40,7 +40,7 @@
 </div>
 <!-- END ページネーション -->
 
-<!-- トップコンテンツ2 -->
+<!-- トップアバウト -->
 <div class="top_content2">
     <div class="container">
         <img src="{% static 'img/top_content1_main.png' %}" />
@@ -61,6 +61,6 @@
         </ul>
     </div>
 </div>
-<!-- END トップコンテンツ2 -->
+<!-- END トップアバウト -->
 
 {% endblock content %}

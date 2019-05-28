@@ -1,0 +1,12 @@
+<!-- ヘッダーウェルカム -->
+<div class="header_welcome">
+{% if user.id  %}
+<p>ようこそ、{{ user.username }}さん</p>
+<a href="{% url 'logout' %}">ログアウト</a>
+{% else %}
+<p>ようこそ、ゲストさん</p>
+<a href="{% url 'accounts:signup' %}">無料会員登録</a>
+<a href="{% url 'login' %}">ログイン</a>
+{% endif %}
+</div>
+<!-- END ヘッダーウェルカム -->
