@@ -1,12 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Forbidden</title>
-</head>
-<body>
-	<h1>アクセスできません</h1>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Forbidden | 
+{% endblock title %}
+
+{% block content %}
+
+<div class="error_page">
+
+	<h2>Forbidden</h2>
+
+	<p>アクセスできません。</p>
+
 	<p>こちらのページを閲覧するにはログインが必要です。</p>
-	<p><a href="{% url 'login' %}">ログイン</a>する。</p>
-</body>
-</html>
+
+	<a to_top href="{% url 'login' %}">ログインする。</a>
+
+</div>
+	
+{% endblock content %}
