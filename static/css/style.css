@@ -1123,7 +1123,7 @@ footer > .container {
 
 .tsunagu_link > img {
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 .tsunagu_link > p {
