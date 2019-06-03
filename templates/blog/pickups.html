@@ -1,15 +1,17 @@
 <!-- ピックアップコンテンツ -->
 <div class="pickups">
-    <h2>オススメのお仕事情報</h2>
+    <h2>オススメ記事一覧</h2>
     <ul>
         {% for pick in picks %}
-        <li>
+        <li class="pickup">
             <a href="{% url 'blog:post_detail' pk=pick.pk %}">
                 {% if pick.image %}
                 <img src="{{ pick.image.thumbnail.url }}" />
                 {% endif %}
-                <h3>{{ pick.title }}</h3>
-                <h4>{{ pick.subtitle }}</h4>
+                <div class="pickup_text">
+                    <h3>{{ pick.title }}</h3>
+                    <h4>{{ pick.subtitle }}</h4>
+                </div>
             </a>
         </li>
         {% endfor %}
