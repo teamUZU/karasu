@@ -6,7 +6,7 @@
         <li class="pickup">
             <a href="{% url 'blog:post_detail' pk=pick.pk %}">
                 {% if pick.image %}
-                <img src="{{ pick.image.thumbnail.url }}" />
+                <img class="pickup_thumb" src="{{ pick.image.thumbnail.url }}" />
                 {% endif %}
                 <div class="pickup_meta">
                     <h3>{{ pick.title }}</h3>

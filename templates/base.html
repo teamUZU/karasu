@@ -51,12 +51,12 @@
 
         </div>
 
-        <ul class="header_menu">
-            <li class="maintenance">SEARCH<br /><span>お仕事を検索する</span></li>
-            <li></li>
-            <li><a href="{% url 'blog:about' %}">ABOUT<br /><span>TSUNAGU KNOTとは？</span></a></li>
-            <li></li>
-            <li><a href="{% url 'blog:tip_list' %}">TIPS<br /><span>お役立ち情報</span></a></li>
+        <ul class="header_menus">
+            <li class="header_menu"><p class="maintenance">SEARCH<br /><span>お仕事を検索する</span></p></li>
+            <li class="header_menu"></li>
+            <li class="header_menu"><a href="{% url 'blog:about' %}">ABOUT<br /><span>TSUNAGU KNOTとは？</span></a></li>
+            <li class="header_menu"></li>
+            <li class="header_menu"><a href="{% url 'blog:tip_list' %}">TIPS<br /><span>お役立ち情報</span></a></li>
         </ul>
 
     </header>
@@ -86,10 +86,10 @@
 
 $(function(){
 
-    $(".header_menu").hide();
+    $(".header_menus").hide();
 
     $(".hamb").click(function(){
-        $(".header_menu").slideToggle();
+        $(".header_menus").slideToggle();
         $(".hamb_border:nth-child(1)").toggleClass("close1");
         $(".hamb_border:nth-child(2)").toggle();
         $(".hamb_border:nth-child(3)").toggleClass("close2");

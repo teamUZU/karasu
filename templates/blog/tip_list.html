@@ -8,19 +8,20 @@
 {% block content %}
 
 <!-- ティップス一覧 -->
-<div class="tips_content">
-    <h2>イベント一覧</h2>
+<div class="tips_list">
+    <h2 class="tips_list_title">お役立ち情報一覧</h2>
     <ul class="container">
         {% for tip in tips %}
         <li>
-            <a class="tips_post" href="{% url 'blog:tip_detail' pk=tip.pk %}">
+            <a class="tips_list_post" href="{% url 'blog:tip_detail' pk=tip.pk %}">
                 {% if tip.image %}
-                <img src="{{ tip.image.thumbnail.url }}" />
+                <img class="tips_list_thumb" src="{{ tip.image.thumbnail.url }}" />
                 {% endif %}
-                <h3>
-                    <span>{{ tip.status }}</span>{{ tip.event_title }}
-                    <p>{{ tip.event_date }}</p>
-                </h3>
+                <div class="tips_list_meta">
+                    <span>{{ tip.status }}</span>
+                    <h3>{{ tip.event_title }}</h3>
+                    <h4>{{ tip.event_date }}</h4>
+                </div>
             </a>
         </li>
         {% endfor %}

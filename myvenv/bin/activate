@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/var/www/tsunagu-knot.com/myvenv"
+VIRTUAL_ENV="/Users/tetsuyar/django/tsunagu-knot.com/myvenv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

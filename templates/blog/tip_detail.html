@@ -14,11 +14,11 @@
 	<div class="container">
 
         <div class="post_detail1">
-            <h2 class="event_title"><span>{{ tip.status }}</span>{{ tip.event_title }}</h2>
+            <h2 class="tips_detail_title"><span>{{ tip.status }}</span>{{ tip.event_title }}</h2>
             {% if tip.image %}
             <img class="post_detail_mainimg" src="{{ tip.image.large.url }}" />
             {% endif %}
-            <table class="event_data">
+            <table class="tips_detail_data">
                 <thead><tr>
                     <th>開催日時</th>
                     <th>場所</th>
@@ -40,19 +40,17 @@
                     <td>{{ tip.note }}</td>
                 </tr></tbody>
             </table>
-            <p>
-            {{ tip.text|linebreaks }}
-            </p>
-            <p>このイベントに参加する場合は、<a href="http://tsunagu-career.com/" target="_blank">TSNAGU</a>のイベントページをご確認ください。</p>
+            <div class="post_detail_text">
+                {{ tip.text|linebreaks }}            
+                <p>このイベントに参加する場合は、<a href="http://tsunagu-career.com/" target="_blank">TSNAGU</a>のイベントページをご確認ください。</p>
+            </div>
             <a class="tsunagu_link" href="http://tsunagu-career.com/" target="_blank">
                 <img src="{% static 'img/logo2.png' %}" />
                 <p>についてはこちらをクリック</p>
             </a>
         </div>
 
-        <div class="post_detail2">
-
-        </div>    
+        <div class="post_detail2"> </div>    
 
     </div>
     <!-- END コンテナー -->

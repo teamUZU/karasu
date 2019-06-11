@@ -6,13 +6,13 @@
 {% include 'blog/pickups.html' %}
 
 <!-- 記事一覧 -->
-<div class="top_content1">
+<div class="top_content">
     <ul class="posts container">
         {% for post in posts %}
         <li class="post">
             <a href="{% url 'blog:post_detail' pk=post.pk %}">
                 {% if post.image %}
-                <img src="{{ post.image.thumbnail.url }}" />
+                <img class="post_thumb" src="{{ post.image.thumbnail.url }}" />
                 {% endif %}
                 <div class="post_meta">
                     <h2>{{ post.title }}</h2><h3>{{ post.subtitle }}</h3>
@@ -41,10 +41,10 @@
 <!-- END ページネーション -->
 
 <!-- トップアバウト -->
-<div class="top_content2">
+<div class="top_about">
     <div class="container">
-        <img src="{% static 'img/top_content1_main.png' %}" />
-        <ul class="top_content2_list">
+        <img class="top_about_img" src="{% static 'img/top_content1_main.png' %}" />
+        <ul class="top_about_list">
             <li><h2>TSUNAGU KNOTの提供する価値</h2></li>
             <li>
                 <h3>外国人求職者向けの最新メディア</h3>

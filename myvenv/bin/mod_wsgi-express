@@ -1,4 +1,4 @@
-#!/var/www/tsunagu-knot.com/myvenv/bin/python3.7
+#!/Users/tetsuyar/django/tsunagu-knot.com/myvenv/bin/python3.7
 # EASY-INSTALL-ENTRY-SCRIPT: 'mod-wsgi==4.6.5','console_scripts','mod_wsgi-express'
 __requires__ = 'mod-wsgi==4.6.5'
 import re

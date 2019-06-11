@@ -1,4 +1,5 @@
-#!/var/www/tsunagu-knot.com/myvenv/bin/python3.7
+#!/Users/tetsuyar/django/tsunagu-knot.com/myvenv/bin/python3.7
+
 # -*- coding: utf-8 -*-
 import re
 import sys

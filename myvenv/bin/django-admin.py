@@ -1,4 +1,4 @@
-#!/var/www/tsunagu-knot.com/myvenv/bin/python3.7
+#!/Users/tetsuyar/django/tsunagu-knot.com/myvenv/bin/python3.7
 from django.core import management
 
 if __name__ == "__main__":

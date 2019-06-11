@@ -26,9 +26,9 @@
 			{% endif %}
 
 			{% if user.id %}
-			{{ post.text|linebreaks }}
+			<div class="post_detail_text">{{ post.text|linebreaks }}</div>
 			{% else %}
-			{{ post.text|linebreaks|truncatechars:500 }}
+			<div class="post_detail_text">{{ post.text|linebreaks|truncatechars:500 }}</div>
 			<div class="mosaic"></div>
 			<a class="readmore" href="{% url 'login' %}">続きを読む<span>ログイン画面に移動します</span></a>
 			<p class="readmore_text">記事の続きを読むにはTSUNAGU KNOTへのログインが必要です。</p>
