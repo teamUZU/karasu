@@ -1,0 +1,44 @@
+<!-- ピックアップコンテンツ -->
+<div class="pickups">
+    <h2>オススメ記事一覧</h2>
+    <ul>
+        {% for pick in picks %}
+        <li class="pickup">
+            <a href="{% url 'blog:post_detail' pk=pick.pk %}">
+                {% if pick.image %}
+                <img class="pickup_thumb" src="{{ pick.image.thumbnail.url }}" />
+                {% endif %}
+                <div class="pickup_meta">
+                    <h3>{{ pick.title }}</h3>
+                    <h4>{{ pick.subtitle }}</h4>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<!-- END ピックアップコンテンツ -->
+
+<script>
+
+$(function(){
+
+    $('.pickups ul').slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
+        slidesToShow: 4,
+        responsive: [{
+            breakpoint: 961, // 768~1023px以下のサイズに適用
+            settings: {slidesToShow: 3}
+        }, {
+            breakpoint: 721, // 480〜767px以下のサイズに適用
+            settings: {slidesToShow: 2}
+        }, {
+            breakpoint: 481, // 〜479px以下のサイズに適用
+            settings: {slidesToShow: 1}
+        }]
+    });
+
+});
+        
+</script>

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ tip.event_title }} | 
+{% endblock title %}
+
+{% block content %}
+
+<!-- ティップス詳細 -->
+<div class="post_detail">
+
+    <!-- コンテナー -->
+	<div class="container">
+
+        <div class="post_detail1">
+            <h2 class="tips_detail_title"><span>{{ tip.status }}</span>{{ tip.event_title }}</h2>
+            {% if tip.image %}
+            <img class="post_detail_mainimg" src="{{ tip.image.large.url }}" />
+            {% endif %}
+            <table class="tips_detail_data">
+                <thead><tr>
+                    <th>開催日時</th>
+                    <th>場所</th>
+                    <th>主催者</th>
+                    <th>備考</td>
+                </tr></thead>
+                <tbody><tr>
+                    <th>開催日時</th>
+                    {% if tip.event_date %}
+                    <td>{{ tip.event_date }}</td>
+                    {% else %}
+                    <td>現在、開催日時を調整しております。</td>
+                    {% endif %}
+                    <th>場所</th>
+                    <td>{{ tip.site }}</td>
+                    <th>主催者</th>
+                    <td>{{ tip.host }}</td>
+                    <th>備考</th>
+                    <td>{{ tip.note }}</td>
+                </tr></tbody>
+            </table>
+            <div class="post_detail_text">
+                {{ tip.text|linebreaks }}            
+                <p>このイベントに参加する場合は、<a href="http://tsunagu-career.com/" target="_blank">TSNAGU</a>のイベントページをご確認ください。</p>
+            </div>
+            <a class="tsunagu_link" href="http://tsunagu-career.com/" target="_blank">
+                <img src="{% static 'img/logo2.png' %}" />
+                <p>についてはこちらをクリック</p>
+            </a>
+        </div>
+
+        <div class="post_detail2"> </div>    
+
+    </div>
+    <!-- END コンテナー -->
+
+</div>
+<!-- END ティップス詳細 -->
+
+{% endblock content %}
